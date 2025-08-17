@@ -1,120 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grill & Slice</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu - Grill & Slice</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #111;
-      color: #fff;
-      text-align: center;
+      color: #eee;
     }
-
     header {
       background: #222;
-      padding: 20px;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-
     header h1 {
+      color: #ff4c29;
       margin: 0;
-      font-size: 2.5rem;
-      color: #f8b400;
     }
-
-    nav {
-      margin-top: 10px;
-    }
-
     nav a {
       color: #fff;
+      margin: 0 12px;
       text-decoration: none;
-      margin: 0 15px;
-      font-size: 1.1rem;
+      font-weight: bold;
     }
-
     nav a:hover {
-      color: #f8b400;
+      color: #ff4c29;
     }
-
     .language-switcher {
       text-align: right;
-      padding: 10px 20px;
+      margin: 15px 30px 0 0;
     }
-
     .language-switcher button {
-      background: #f8b400;
+      background: #ff4c29;
       border: none;
-      padding: 8px 15px;
-      border-radius: 5px;
+      color: white;
+      padding: 7px 14px;
+      margin-left: 5px;
       cursor: pointer;
-      font-size: 1rem;
-      color: #111;
+      border-radius: 5px;
+      font-weight: bold;
     }
-
-    .language-switcher button:hover {
-      background: #ffcc33;
+    .menu-section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
     }
-
-    .hero {
-      padding: 50px 20px;
+    .menu-section h2 {
+      text-align: center;
+      color: #ff4c29;
+      font-size: 28px;
+      margin-bottom: 25px;
     }
-
-    .hero h2 {
-      font-size: 2rem;
-      margin: 20px 0;
-      color: #fff;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-      color: #ccc;
-    }
-
-    .menu {
+    .items {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
-      padding: 40px 20px;
     }
-
-    .menu-item {
-      background: #222;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    .item {
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
       transition: transform 0.3s;
     }
-
-    .menu-item:hover {
-      transform: translateY(-5px);
+    .item:hover {
+      transform: translateY(-8px);
     }
-
-    .menu-item img {
+    .item img {
       width: 100%;
-      height: 200px;
+      height: 170px;
       object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 12px;
     }
-
-    .menu-item h3 {
-      margin: 15px 0 5px;
-      color: #f8b400;
+    .item h3 {
+      margin: 10px 0 5px;
+      color: #fff;
     }
-
-    .menu-item p {
-      font-size: 0.9rem;
-      padding: 0 10px 15px;
-      color: #ccc;
+    .item p {
+      margin: 5px 0;
+      color: #bbb;
+      font-size: 14px;
     }
-
-    footer {
-      background: #222;
-      padding: 15px;
-      margin-top: 30px;
-      color: #ccc;
+    .price {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #ffcc00;
     }
   </style>
 </head>
@@ -122,50 +98,100 @@
   <header>
     <h1>Grill & Slice</h1>
     <nav>
-      <a href="#">Home</a>
-      <a href="#">Menu</a>
-      <a href="#">Deals</a>
-      <a href="#">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- Language Switcher (Right side, above punch line) -->
   <div class="language-switcher">
-    <button>English / اردو</button>
+    <button>English</button>
+    <button>اردو</button>
+    <button>سرائیکی</button>
   </div>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h2>"Savor the Taste, Share the Slice"</h2>
-    <p>The best grilled delights & cheesy slices in town.</p>
-  </section>
-
-  <!-- Menu Section -->
-  <section class="menu">
-    <div class="menu-item">
-      <img src="https://images.unsplash.com/photo-1601924638867-3ec59b24f01b" alt="Beef Pizza">
-      <h3>Beef Pizza</h3>
-      <p>Loaded with juicy beef, fresh veggies, and extra cheese.</p>
-    </div>
-    <div class="menu-item">
-      <img src="https://images.unsplash.com/photo-1546069901-eacef0df6022" alt="Grilled Chicken">
-      <h3>Grilled Chicken</h3>
-      <p>Perfectly marinated and flame-grilled to perfection.</p>
-    </div>
-    <div class="menu-item">
-      <img src="https://images.unsplash.com/photo-1604908176997-126c4d70f56f" alt="Cheese Burger">
-      <h3>Cheese Burger</h3>
-      <p>Juicy beef patty stacked with melting cheese & toppings.</p>
-    </div>
-    <div class="menu-item">
-      <img src="https://images.unsplash.com/photo-1550547660-d9450f859349" alt="French Fries">
-      <h3>French Fries</h3>
-      <p>Golden crispy fries with a pinch of salt & seasoning.</p>
+  <!-- Burgers -->
+  <section class="menu-section">
+    <h2>🍔 Burgers / برگر / برگرز</h2>
+    <div class="items">
+      <div class="item">
+        <img src="https://i.ibb.co/5L5HvR6/burger1.jpg" alt="Classic Beef Burger">
+        <h3>Classic Beef Burger</h3>
+        <p>کلاسک بیف برگر</p>
+        <p>روایتی بیف برگر</p>
+        <p class="price">Rs. 550</p>
+      </div>
+      <div class="item">
+        <img src="https://i.ibb.co/0VtP4Lz/burger2.jpg" alt="Zinger Burger">
+        <h3>Zinger Burger</h3>
+        <p>زنگر برگر</p>
+        <p>چکن زنگر برگر</p>
+        <p class="price">Rs. 480</p>
+      </div>
+      <div class="item">
+        <img src="https://i.ibb.co/sF2Rxsd/burger3.jpg" alt="Cheese Burger">
+        <h3>Cheese Burger</h3>
+        <p>چیز برگر</p>
+        <p>چیز والا برگر</p>
+        <p class="price">Rs. 600</p>
+      </div>
     </div>
   </section>
 
-  <footer>
-    <p>&copy; 2025 Grill & Slice. All Rights Reserved.</p>
-  </footer>
+  <!-- Pizza -->
+  <section class="menu-section">
+    <h2>🍕 Pizza / پیزا / پیزے</h2>
+    <div class="items">
+      <div class="item">
+        <img src="https://i.ibb.co/WVks8Ms/pizza1.jpg" alt="Pepperoni Pizza">
+        <h3>Pepperoni Pizza</h3>
+        <p>پیپرونی پیزا</p>
+        <p>پیپرونی پیزا</p>
+        <p class="price">Rs. 1200</p>
+      </div>
+      <div class="item">
+        <img src="https://i.ibb.co/tC3tkcW/pizza2.jpg" alt="Chicken Fajita Pizza">
+        <h3>Chicken Fajita Pizza</h3>
+        <p>چکن فہیتا پیزا</p>
+        <p>چکن فہیتا پیزا</p>
+        <p class="price">Rs. 1100</p>
+      </div>
+      <div class="item">
+        <img src="https://i.ibb.co/fM8cQ8H/pizza3.jpg" alt="Vegetable Pizza">
+        <h3>Vegetable Pizza</h3>
+        <p>ویجیٹیبل پیزا</p>
+        <p>سبزی والا پیزا</p>
+        <p class="price">Rs. 950</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fast Food -->
+  <section class="menu-section">
+    <h2>🍟 Fast Food / فاسٹ فوڈ / فاسٹ فوڈ</h2>
+    <div class="items">
+      <div class="item">
+        <img src="https://i.ibb.co/7rswmzF/fries.jpg" alt="French Fries">
+        <h3>French Fries</h3>
+        <p>فرنچ فرائز</p>
+        <p>آلو فرائز</p>
+        <p class="price">Rs. 250</p>
+      </div>
+      <div class="item">
+        <img src="https://i.ibb.co/qnv2Lws/roll.jpg" alt="Chicken Roll">
+        <h3>Chicken Roll</h3>
+        <p>چکن رول</p>
+        <p>چکن رول</p>
+        <p class="price">Rs. 300</p>
+      </div>
+      <div class="item">
+        <img src="https://i.ibb.co/0YkYvnB/sandwich.jpg" alt="Club Sandwich">
+        <h3>Club Sandwich</h3>
+        <p>کلب سینڈوچ</p>
+        <p>کلب سینڈوچ</p>
+        <p class="price">Rs. 450</p>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
