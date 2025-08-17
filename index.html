@@ -1,135 +1,162 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Grill and Slice</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #111;
-      color: #fff;
-    }
+/* style.css */
 
-    header {
-      text-align: center;
-      padding: 20px;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
 
-    /* Language Dropdown */
-    .language-select {
-      margin-bottom: 10px;
-    }
-    .language-select select {
-      padding: 8px 12px;
-      border-radius: 8px;
-      border: none;
-      font-weight: bold;
-      background: #ff4500;
-      color: #fff;
-      cursor: pointer;
-    }
+body {
+  background-color: #1a0000; /* very dark red */
+  color: #fff;
+}
 
-    /* Carousel */
-    .carousel {
-      position: relative;
-      width: 100%;
-      max-height: 500px;
-      overflow: hidden;
-    }
-    .carousel img {
-      width: 100%;
-      display: none;
-      object-fit: cover;
-    }
-    .carousel img.active {
-      display: block;
-    }
-    .carousel-text {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,0.6);
-      padding: 15px 25px;
-      border-radius: 12px;
-      font-size: 1.5rem;
-    }
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: #330000; /* deep red */
+}
 
-    main {
-      padding: 40px 20px;
-      text-align: center;
-    }
+.navbar .logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ff4d4d; /* bright red */
+}
 
-    h1 {
-      font-size: 2.2rem;
-      color: #ffcc00;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <!-- Language Button -->
-    <div class="language-select">
-      <select id="languageSwitcher">
-        <option value="en">English</option>
-        <option value="ur">اردو</option>
-        <option value="skr">سرائیکی</option>
-      </select>
-    </div>
-    <h1 id="welcomeText">Welcome to Grill and Slice</h1>
-  </header>
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
 
-  <!-- Image Carousel -->
-  <div class="carousel">
-    <img src="images/burger.jpg" class="active" alt="Delicious Burger">
-    <img src="images/pizza.jpg" alt="Cheesy Pizza">
-    <img src="images/fries.jpg" alt="Crispy Fries">
-    <div class="carousel-text">Grill and Slice – Taste the Difference</div>
-  </div>
+.navbar .nav-links li {
+  margin-left: 30px;
+}
 
-  <main>
-    <p id="introText">
-      Experience the most delicious burgers, pizzas, and fast food delights in South Punjab!
-    </p>
-  </main>
+.navbar .nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: 0.3s;
+}
 
-  <script>
-    // Language Switcher
-    const translations = {
-      en: {
-        welcome: "Welcome to Grill and Slice",
-        intro: "Experience the most delicious burgers, pizzas, and fast food delights in South Punjab!"
-      },
-      ur: {
-        welcome: "گرل اینڈ سلائس میں خوش آمدید",
-        intro: "جنوبی پنجاب میں سب سے مزیدار برگر، پیزا اور فاسٹ فوڈ کا لطف اٹھائیں!"
-      },
-      skr: {
-        welcome: "گرل تے سلائس آندھے خیرمقدم",
-        intro: "جنوبی پنجاب دے سوادلے برگر، پیزا تے فاسٹ فوڈ دا مزا لو!"
-      }
-    };
+.navbar .nav-links a:hover {
+  color: #ff4d4d;
+}
 
-    const languageSwitcher = document.getElementById("languageSwitcher");
-    const welcomeText = document.getElementById("welcomeText");
-    const introText = document.getElementById("introText");
+.navbar select {
+  padding: 5px 10px;
+  background-color: #330000;
+  color: #fff;
+  border: 1px solid #ff4d4d;
+  border-radius: 5px;
+}
 
-    languageSwitcher.addEventListener("change", () => {
-      const lang = languageSwitcher.value;
-      welcomeText.textContent = translations[lang].welcome;
-      introText.textContent = translations[lang].intro;
-    });
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  background: url('images/hero-bg.jpg') no-repeat center center/cover;
+  text-align: center;
+  position: relative;
+}
 
-    // Carousel
-    const slides = document.querySelectorAll(".carousel img");
-    let index = 0;
-    setInterval(() => {
-      slides[index].classList.remove("active");
-      index = (index + 1) % slides.length;
-      slides[index].classList.add("active");
-    }, 3000);
-  </script>
-</body>
-</html>
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(26, 0, 0, 0.6); /* dark overlay */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 60px;
+  color: #ff4d4d;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.hero .btn {
+  padding: 15px 35px;
+  background-color: #ff1a1a;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.hero .btn:hover {
+  background-color: #ff4d4d;
+}
+
+/* Featured Items */
+.featured {
+  padding: 60px 50px;
+  background-color: #330000;
+  text-align: center;
+}
+
+.featured h2 {
+  font-size: 36px;
+  color: #ff4d4d;
+  margin-bottom: 40px;
+}
+
+.featured .items {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.featured .item {
+  background-color: #1a0000;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  transition: 0.3s;
+}
+
+.featured .item img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.featured .item h3 {
+  color: #ff4d4d;
+  margin-bottom: 10px;
+}
+
+.featured .item p {
+  font-size: 16px;
+  color: #fff;
+}
+
+.featured .item:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  padding: 20px;
+  text-align: center;
+  background-color: #330000;
+  color: #ff4d4d;
+}
