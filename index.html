@@ -3,110 +3,115 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grill and Slice</title>
+  <title>Grill & Slice</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #fff5f0;
-      color: #333;
+      background: #1a1a1a;
+      color: #fff;
+      text-align: center;
     }
     header {
-      background-color: #d32f2f;
-      padding: 15px;
-      text-align: center;
-      color: white;
+      background: #b22222;
+      padding: 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    nav {
+      margin-top: 10px;
     }
     nav a {
+      color: #fff;
       margin: 0 15px;
-      color: white;
       text-decoration: none;
       font-weight: bold;
     }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .language-switcher {
+      margin: 15px 0;
+    }
+    select {
+      padding: 5px;
+      font-size: 1rem;
+      border-radius: 5px;
+    }
     .hero {
-      text-align: center;
       padding: 40px 20px;
-      background: url('https://images.unsplash.com/photo-1601924579440-0c8b1f1e93e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-      color: white;
     }
-    .language-select {
-      margin: 20px auto;
-      text-align: center;
+    .hero img {
+      width: 200px;
+      margin: 15px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
     }
-    .food-gallery {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin: 30px 0;
-    }
-    .food-gallery img {
-      width: 250px;
-      height: 180px;
-      border-radius: 12px;
-      object-fit: cover;
-      box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
-    }
-    footer {
-      background: #d32f2f;
-      color: white;
-      text-align: center;
-      padding: 15px;
+    .footer {
       margin-top: 30px;
+      background: #b22222;
+      padding: 15px;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Grill and Slice</h1>
+    <h1>Grill & Slice</h1>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="menu.html">Menu</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="index.html" data-en="Home" data-ur="ہوم" data-sa="ہوم">Home</a>
+      <a href="about.html" data-en="About" data-ur="ہمارے بارے میں" data-sa="ساڈی پہچان">About</a>
+      <a href="menu.html" data-en="Menu" data-ur="مینو" data-sa="کھابا">Menu</a>
+      <a href="contact.html" data-en="Contact" data-ur="رابطہ کریں" data-sa="رابطہ">Contact</a>
     </nav>
   </header>
 
-  <div class="language-select">
-    <label for="lang">🌐 Language: </label>
-    <select id="lang" onchange="changeLanguage()">
+  <!-- Language Switcher -->
+  <div class="language-switcher">
+    <label for="lang">🌐 </label>
+    <select id="lang">
       <option value="en">English</option>
       <option value="ur">اردو</option>
-      <option value="skr">سرائیکی</option>
+      <option value="sa">سرائیکی</option>
     </select>
   </div>
 
   <section class="hero">
-    <h2 id="welcome-text">Welcome to Grill and Slice</h2>
-    <p id="tagline">The Best Burgers, Pizzas, and Fast Food in Muzaffargarh!</p>
+    <h2 id="welcome" data-en="Welcome to Grill & Slice" data-ur="گرل اینڈ سلائس میں خوش آمدید" data-sa="گرل اینڈ سلائس وچ آپ دا سواگت اے">
+      Welcome to Grill & Slice
+    </h2>
+    <p id="desc" data-en="The best pizzas, burgers, and fast food in Muzaffargarh." 
+       data-ur="مظفرگڑھ میں بہترین پیزا، برگر اور فاسٹ فوڈ۔" 
+       data-sa="مظفرگڑھ وچ سب توں چنگے برگر، پیزا تے فاسٹ فوڈ۔">
+       The best pizzas, burgers, and fast food in Muzaffargarh.
+    </p>
+
+    <!-- Food Images -->
+    <div>
+      <img src="https://i.ibb.co/hVDvWyz/burger.jpg" alt="Burger">
+      <img src="https://i.ibb.co/4jF7L7g/pizza.jpg" alt="Pizza">
+    </div>
   </section>
 
-  <section class="food-gallery">
-    <img src="https://images.unsplash.com/photo-1601924579440-0c8b1f1e93e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Delicious Pizza">
-    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Juicy Burger">
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Grill and Slice - Muzaffargarh, Pakistan</p>
+  <footer class="footer">
+    <p data-en="© 2025 Grill & Slice. All rights reserved." 
+       data-ur="© 2025 گرل اینڈ سلائس۔ جملہ حقوق محفوظ ہیں۔" 
+       data-sa="© 2025 گرل اینڈ سلائس۔ سارے حق محفوظ نیں۔">
+       © 2025 Grill & Slice. All rights reserved.
+    </p>
   </footer>
 
   <script>
-    function changeLanguage() {
-      const lang = document.getElementById("lang").value;
-      const welcome = document.getElementById("welcome-text");
-      const tagline = document.getElementById("tagline");
+    const langSelect = document.getElementById('lang');
+    const elements = document.querySelectorAll('[data-en]');
 
-      if (lang === "en") {
-        welcome.innerText = "Welcome to Grill and Slice";
-        tagline.innerText = "The Best Burgers, Pizzas, and Fast Food in Muzaffargarh!";
-      } else if (lang === "ur") {
-        welcome.innerText = "گرل اینڈ سلائس میں خوش آمدید";
-        tagline.innerText = "معزز مزنگرگڑھ میں بہترین برگر، پیزا اور فاسٹ فوڈ!";
-      } else if (lang === "skr") {
-        welcome.innerText = "گرل تے سلائس تے سواگت اے";
-        tagline.innerText = "مزنگرگڑھ دے سبھ توں وادھیا برگر، پیزا تے فاسٹ فوڈ!";
-      }
-    }
+    langSelect.addEventListener('change', () => {
+      const lang = langSelect.value;
+      elements.forEach(el => {
+        el.innerText = el.getAttribute(`data-${lang}`);
+      });
+    });
   </script>
 </body>
 </html>
