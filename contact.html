@@ -108,9 +108,9 @@
     <p>Fill the form below and make your meal unforgettable! 😋</p>
   </div>
 
-  <!-- Order Form -->
+  <!-- Order Form with Formspree -->
   <div class="order-form">
-    <form id="orderForm">
+    <form id="orderForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
       <label for="name">Full Name</label>
       <input type="text" id="name" name="name" placeholder="Enter your full name" required>
 
@@ -157,12 +157,7 @@
 
     // Alert after order submitted
     document.getElementById('orderForm').addEventListener('submit', function(e){
-      e.preventDefault();
       alert(`Thank you! Your order for ${document.getElementById('item').value} has been received. 😋 Why not order another one?`);
-      this.reset();
-      if (selectedItem) {
-        document.getElementById('item').value = selectedItem; // refill first item to encourage second order
-      }
     });
   </script>
 
