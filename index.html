@@ -113,7 +113,6 @@ footer{background:#121212;text-align:center;padding:20px;color:#aaa;margin-top:5
     <h1 id="hero-title">Welcome to Grill & Slice</h1>
     <p id="hero-subtitle">Delicious Pizza, Burgers & Fast Food – freshly prepared for you!</p>
     <a href="menu.html" class="btn" id="hero-btn">Order Now</a>
-    <a href="menu.html" class="btn" id="hero-btn-online" style="margin-left:15px;">Order Online</a>
   </div>
 </section>
 
@@ -148,17 +147,17 @@ footer{background:#121212;text-align:center;padding:20px;color:#aaa;margin-top:5
 <!-- Language Script -->
 <script>
 const translations={
-  en:{heroTitle:"Welcome to Grill & Slice", heroSubtitle:"Delicious Pizza, Burgers & Fast Food – freshly prepared for you!", heroBtn:"Order Now", heroBtnOnline:"Order Online",
+  en:{heroTitle:"Welcome to Grill & Slice", heroSubtitle:"Delicious Pizza, Burgers & Fast Food – freshly prepared for you!", heroBtn:"Order Now",
       feat1Title:"Delicious Pizza", feat1Desc:"Margherita, Pepperoni, BBQ Chicken – baked fresh daily.",
       feat2Title:"Tasty Burgers", feat2Desc:"Beef, Chicken & Veggie burgers with fresh toppings.",
       feat3Title:"Fast Food", feat3Desc:"French fries, nuggets & sandwiches – crispy & hot."},
   ur:{heroTitle:"گرل اینڈ سلائس میں خوش آمدید", heroSubtitle:"مزیدار پیزا، برگر اور فاسٹ فوڈ – تازہ تیار!",
-      heroBtn:"آرڈر کریں", heroBtnOnline:"آن لائن آرڈر",
+      heroBtn:"آرڈر کریں",
       feat1Title:"مزیدار پیزا", feat1Desc:"مارگریٹا، پیپرونی، بی بی کیو چکن – ہر روز تازہ بیک۔",
       feat2Title:"مزیدار برگر", feat2Desc:"بیف، چکن اور سبزی والے برگر تازہ ٹاپنگ کے ساتھ۔",
       feat3Title:"فاسٹ فوڈ", feat3Desc:"فرنچ فرائز، نگٹس اور سینڈوچ – کرسپ اور گرم۔"},
   srk:{heroTitle:"گرل اینڈ سلائس وچ خوش آمدید", heroSubtitle:"مزیدار پیزا، برگر تے فاسٹ فوڈ – تازہ تیار!",
-      heroBtn:"آرڈر کرو", heroBtnOnline:"آن لائن آرڈر",
+      heroBtn:"آرڈر کرو",
       feat1Title:"مزیدار پیزا", feat1Desc:"مارگریٹا، پیپرونی، بی بی کیو چکن – ہر روز تازہ بیک۔",
       feat2Title:"مزیدار برگر", feat2Desc:"بیف، چکن تے سبزی والے برگر تازہ ٹاپنگ نال۔",
       feat3Title:"فاسٹ فوڈ", feat3Desc:"فرنچ فرائز، نگٹس تے سینڈوچ – کرسپ تے گرم۔"}
@@ -169,7 +168,6 @@ function setLang(lang){
   document.getElementById('hero-title').textContent=translations[lang].heroTitle;
   document.getElementById('hero-subtitle').textContent=translations[lang].heroSubtitle;
   document.getElementById('hero-btn').textContent=translations[lang].heroBtn;
-  document.getElementById('hero-btn-online').textContent=translations[lang].heroBtnOnline;
   document.getElementById('feat1-title').textContent=translations[lang].feat1Title;
   document.getElementById('feat1-desc').textContent=translations[lang].feat1Desc;
   document.getElementById('feat2-title').textContent=translations[lang].feat2Title;
