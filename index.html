@@ -1,78 +1,101 @@
-<!DOCTYPE html><html lang="en" dir="ltr">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Grill and Slice - Muzaffargarh</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="app.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grill and Slice - Home</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+    }
+    header {
+      background: #d32f2f;
+      padding: 15px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    nav {
+      background: #b71c1c;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #ffcc80;
+    }
+    .hero {
+      background: url("https://images.unsplash.com/photo-1601924582975-7e1d7a1fddc8") center/cover no-repeat;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero h2 {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 2rem;
+    }
+    section {
+      padding: 50px;
+      text-align: center;
+    }
+    .footer {
+      background: #222;
+      padding: 20px;
+      text-align: center;
+    }
+    .lang-switch {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #ff5722;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
-  <!-- Navigation Bar -->
   <header>
-    <nav class="navbar">
-      <div class="logo">Grill & Slice</div>
-      <ul class="nav-links">
-        <li><a href="index.html" data-key="home">Home</a></li>
-        <li><a href="menu.html" data-key="menu">Menu</a></li>
-        <li><a href="about.html" data-key="about">About</a></li>
-        <li><a href="contact.html" data-key="contact">Contact</a></li>
-      </ul>
-      <select id="languageSwitcher">
-        <option value="en">English</option>
-        <option value="ur">اردو</option>
-        <option value="skr">سرائیکی</option>
-      </select>
-    </nav>
-  </header>  <!-- Hero Section -->  <section class="hero">
-    <div class="carousel">
-      <div class="slide active">
-        <img src="https://source.unsplash.com/1600x600/?burger" alt="Burger" />
-      </div>
-      <div class="slide">
-        <img src="https://source.unsplash.com/1600x600/?pizza" alt="Pizza" />
-      </div>
-      <div class="slide">
-        <img src="https://source.unsplash.com/1600x600/?fastfood" alt="Fast Food" />
-      </div>
-    </div>
-    <div class="hero-text">
-      <h1 data-key="tagline">Grill and Slice: Where Flavor Meets Fire in Muzaffargarh!</h1>
-      <a href="menu.html" class="btn order-btn" data-key="orderNow">Order Now</a>
-    </div>
-  </section>  <!-- Featured Deals -->  <section class="deals">
-    <h2 data-key="featuredDeals">Featured Deals</h2>
-    <div class="deal-cards">
-      <div class="card">
-        <img src="https://source.unsplash.com/400x300/?zinger" alt="Zinger Burger" />
-        <h3 data-key="deal1">Zinger Burger with Fries - PKR 450</h3>
-      </div>
-      <div class="card">
-        <img src="https://source.unsplash.com/400x300/?cheese-pizza" alt="Cheese Pizza" />
-        <h3 data-key="deal2">Cheese Burst Pizza - PKR 1200</h3>
-      </div>
-      <div class="card">
-        <img src="https://source.unsplash.com/400x300/?shawarma" alt="Shawarma" />
-        <h3 data-key="deal3">Shawarma Roll - PKR 250</h3>
-      </div>
-    </div>
-  </section>  <!-- Testimonials -->  <section class="testimonials">
-    <h2 data-key="testimonials">What Our Customers Say</h2>
-    <div class="testimonial-list">
-      <blockquote>“Best pizza in Muzaffargarh, hands down!”</blockquote>
-      <blockquote>“Love the spicy burgers, they taste amazing.”</blockquote>
-      <blockquote>“Affordable, fresh, and full of flavor.”</blockquote>
-    </div>
-  </section>  <!-- Google Maps -->  <section class="location">
-    <h2 data-key="findUs">Find Us</h2>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d219738.8472939093!2d71.05696709999999!3d30.0738514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393c95b6e4f2b1d1%3A0x7a66216c0daac824!2sMuzaffargarh%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1692178720039!5m2!1sen!2s" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-  </section>  <!-- Footer -->  <footer>
-    <p>&copy; 2025 Grill and Slice | <span data-key="rights">All Rights Reserved</span></p>
-    <ul class="footer-links">
-      <li><a href="index.html" data-key="home">Home</a></li>
-      <li><a href="menu.html" data-key="menu">Menu</a></li>
-      <li><a href="about.html" data-key="about">About</a></li>
-      <li><a href="contact.html" data-key="contact">Contact</a></li>
-    </ul>
-  </footer>
+    <h1>🍕 Grill and Slice 🍔</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <button class="lang-switch">🌐 Language</button>
+
+  <div class="hero">
+    <h2>Welcome to Grill and Slice – The Best Pizza & Burgers in Muzaffargarh</h2>
+  </div>
+
+  <section>
+    <h2>Our Specialty</h2>
+    <p>Serving sizzling pizzas, juicy burgers, and fast-food favorites with love ❤️</p>
+  </section>
+
+  <div class="footer">
+    <p>© 2025 Grill and Slice. All Rights Reserved.</p>
+  </div>
 </body>
 </html>
