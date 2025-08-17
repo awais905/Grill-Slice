@@ -1,55 +1,131 @@
-<section id="menu" class="menu">
-  <h2>Our Menu</h2>
-  <div class="menu-container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gril & Slice - Menu</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+    }
 
-    <!-- Vegetable Pizza -->
-    <div class="menu-item">
-      <img src="images/vegetable-pizza.jpg" alt="Vegetable Pizza">
+    header {
+      background: #222;
+      padding: 15px;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: gold;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      padding: 30px;
+    }
+
+    .item {
+      background: gold;
+      color: black;
+      padding: 12px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.6);
+      transition: 0.3s;
+    }
+
+    .item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0px 6px 15px rgba(0,0,0,0.8);
+    }
+
+    .item img {
+      width: 100%;
+      height: 100px; /* Smaller rectangle size */
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+
+    .item h3 {
+      margin: 4px 0;
+      font-size: 1rem;
+    }
+
+    .item p {
+      font-size: 0.8rem;
+    }
+
+    .item a {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 6px 12px;
+      background: black;
+      color: gold;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .item a:hover {
+      background: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <header>🍕 Our Premium Menu</header>
+
+  <section class="menu">
+
+    <div class="item">
+      <img src="https://images.unsplash.com/photo-1601924582971-df1bbf5d3a9a?auto=format&fit=crop&w=600&q=80" alt="Vegetable Pizza">
       <h3>Vegetable Pizza</h3>
-      <p>Freshly baked pizza topped with seasonal vegetables and mozzarella cheese.</p>
+      <p>Fresh vegetables, cheese, tomato sauce</p>
+      <a href="contact.html">Order Now</a>
     </div>
 
-    <!-- BBQ Chicken Pizza -->
-    <div class="menu-item">
-      <img src="images/bbq-chicken-pizza.jpg" alt="BBQ Chicken Pizza">
+    <div class="item">
+      <img src="https://images.unsplash.com/photo-1594007654729-407eedc4be65?auto=format&fit=crop&w=600&q=80" alt="BBQ Chicken Pizza">
       <h3>BBQ Chicken Pizza</h3>
-      <p>Grilled chicken, BBQ sauce, onions, and melted cheese on a crispy crust.</p>
+      <p>Grilled chicken, BBQ sauce, cheese</p>
+      <a href="contact.html">Order Now</a>
     </div>
 
-    <!-- Margherita Pizza -->
-    <div class="menu-item">
-      <img src="images/margherita-pizza.jpg" alt="Margherita Pizza">
+    <div class="item">
+      <img src="https://images.unsplash.com/photo-1601924579628-00665048f75b?auto=format&fit=crop&w=600&q=80" alt="Margherita Pizza">
       <h3>Margherita Pizza</h3>
-      <p>Classic pizza with tomato sauce, mozzarella cheese, and fresh basil.</p>
+      <p>Classic cheese & tomato sauce</p>
+      <a href="contact.html">Order Now</a>
     </div>
 
-    <!-- Pepperoni Pizza -->
-    <div class="menu-item">
-      <img src="images/pepperoni-pizza.jpg" alt="Pepperoni Pizza">
+    <div class="item">
+      <img src="https://images.unsplash.com/photo-1548365328-9f547fdc0b36?auto=format&fit=crop&w=600&q=80" alt="Pepperoni Pizza">
       <h3>Pepperoni Pizza</h3>
-      <p>Delicious pepperoni slices layered over melted mozzarella and tangy sauce.</p>
+      <p>Pepperoni, cheese, tomato sauce</p>
+      <a href="contact.html">Order Now</a>
     </div>
 
-    <!-- Beef Pizza -->
-    <div class="menu-item">
-      <img src="images/beef-pizza.jpg" alt="Beef Pizza">
-      <h3>Beef Pizza</h3>
-      <p>Juicy ground beef, onions, and melted cheese on a hot crust.</p>
-    </div>
-
-    <!-- Fries -->
-    <div class="menu-item">
-      <img src="images/fries.jpg" alt="Fries">
+    <div class="item">
+      <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=600&q=80" alt="Fries">
       <h3>Fries</h3>
-      <p>Golden crispy French fries served fresh and hot.</p>
+      <p>Crispy golden fries</p>
+      <a href="contact.html">Order Now</a>
     </div>
 
-    <!-- Nuggets -->
-    <div class="menu-item">
-      <img src="images/nuggets.jpg" alt="Nuggets">
+    <div class="item">
+      <img src="https://images.unsplash.com/photo-1626088351589-d5b89c3e28e9?auto=format&fit=crop&w=600&q=80" alt="Nuggets">
       <h3>Nuggets</h3>
-      <p>Crunchy chicken nuggets, perfect for snacks or sides.</p>
+      <p>Crunchy chicken nuggets</p>
+      <a href="contact.html">Order Now</a>
     </div>
 
-  </div>
-</section>
+  </section>
+
+</body>
+</html>
