@@ -165,23 +165,20 @@
 
 <section class="contact-section">
   <h2>Place Your Order</h2>
-  <form id="orderForm" action="https://formspree.io/f/yourFormID" method="POST">
+  <form id="orderForm">
     <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
+    <input type="text" id="name" placeholder="Your Name" required>
 
     <label for="contact">Contact Number:</label>
-    <input type="tel" id="contact" name="contact" required>
+    <input type="tel" id="contact" placeholder="0308XXXXXXX" required>
 
     <label for="item">Selected Item:</label>
-    <input type="text" id="item" name="item" readonly>
+    <input type="text" id="item" readonly>
 
-    <label for="message">Message:</label>
-    <textarea id="message" name="message" rows="4" placeholder="Any special instructions?"></textarea>
+    <label for="message">Message / Instructions:</label>
+    <textarea id="message" rows="4" placeholder="Any special instructions?"></textarea>
 
-    <button type="submit" class="order-btn">Submit Order</button>
+    <button type="submit" class="order-btn">Send Order via WhatsApp</button>
   </form>
 
   <h2>Online Payment Options</h2>
@@ -206,7 +203,7 @@
 </footer>
 
 <script>
-  // Auto-fill item from URL
+  // Auto-fill selected item from URL
   const urlParams = new URLSearchParams(window.location.search);
   const selectedItem = urlParams.get('item');
   if (selectedItem) {
@@ -214,13 +211,19 @@
     if(itemInput) itemInput.value = selectedItem;
   }
 
-  // Alert confirmation after order
+  // Send order via WhatsApp
   const orderForm = document.getElementById('orderForm');
-  if(orderForm){
-    orderForm.addEventListener('submit', function(){
-      alert(`Thank you! Your order for ${document.getElementById('item').value} has been sent. 😋 Why not order another one?`);
-    });
-  }
+  orderForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const contact = document.getElementById('contact').value;
+    const item = document.getElementById('item').value;
+    const message = document.getElementById('message').value;
+
+    const text = `Order from Grill & Slice:\nName: ${name}\nContact: ${contact}\nItem: ${item}\nInstructions: ${message}`;
+    const waURL = `https://wa.me/923080432842?text=${encodeURIComponent(text)}`;
+    window.open(waURL, '_blank');
+  });
 </script>
 
 </body>
