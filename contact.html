@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order - Grill & Slice</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #1b0000;
+      color: #fff;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: #330000;
+    }
+    .navbar .logo { font-size: 28px; font-weight: 700; color: #ff4d4d; }
+    .navbar .nav-links { list-style: none; display: flex; align-items: center; }
+    .navbar .nav-links li { margin-left: 25px; }
+    .navbar .nav-links a { text-decoration: none; color: #fff; font-weight: 500; transition: 0.3s; }
+    .navbar .nav-links a:hover { color: #ff4d4d; }
+
+    /* Page Header */
+    .header { text-align: center; padding: 80px 20px 40px 20px; }
+    .header h2 { font-size: 36px; color: #ff4d4d; margin-bottom: 10px; }
+    .header p { font-size: 18px; color: #fff; margin-bottom: 0; }
+
+    /* Form Section */
+    .order-form {
+      max-width: 700px;
+      margin: auto;
+      background-color: #330000;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #ff4d4d;
+    }
+    .order-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+      color: #ff4d4d;
+    }
+    .order-form input, .order-form textarea, .order-form select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ff4d4d;
+      border-radius: 5px;
+      background-color: #1b0000;
+      color: #fff;
+    }
+    .order-form input:focus, .order-form textarea:focus, .order-form select:focus {
+      outline: none;
+      border-color: gold;
+    }
+    .order-form button {
+      background: gold;
+      color: #000;
+      font-weight: 700;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: 0.3s;
+      margin-right: 10px;
+    }
+    .order-form button:hover { background: #ffcc00; }
+
+    /* Payment Section */
+    .payment-methods { text-align: center; margin-top: 30px; }
+    .payment-methods h3 { color: #ff4d4d; margin-bottom: 20px; }
+    .payment-methods .pay-btn { display: inline-block; margin: 10px; padding: 12px 25px; background: gold; color: #000; font-weight: 700; border-radius: 5px; text-decoration: none; transition: 0.3s; }
+    .payment-methods .pay-btn:hover { background: #ffcc00; }
+
+    footer {
+      padding: 20px;
+      text-align: center;
+      background-color: #330000;
+      color: #ff4d4d;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Grill & Slice</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="header">
+    <h2>Place Your Order</h2>
+    <p>Fill the form below and make your meal unforgettable! 😋</p>
+  </div>
+
+  <!-- Order Form -->
+  <div class="order-form">
+    <form id="orderForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+      <label for="phone">Contact Number</label>
+      <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+      <label for="item">Item You Want to Order</label>
+      <input type="text" id="item" name="item" placeholder="Selected item will appear here" required readonly>
+
+      <label for="quantity">Quantity</label>
+      <select id="quantity" name="quantity" required>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+
+      <label for="message">Additional Notes</label>
+      <textarea id="message" name="message" rows="4" placeholder="Any special instructions..."></textarea>
+
+      <button type="submit">Place Order</button>
+    </form>
+
+    <!-- Payment Section -->
+    <div class="payment-methods">
+      <h3>Or Pay Online</h3>
+      <a href="https://www.jazzcash.com.pk" target="_blank" class="pay-btn">JazzCash: 03080432842</a>
+      <a href="https://www.easypaisa.com.pk" target="_blank" class="pay-btn">Easypaisa: 03080432842</a>
+      <a href="https://www.paypal.com" target="_blank" class="pay-btn">PayPal: 03080432842</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Grill & Slice | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    // Auto-fill item from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedItem = urlParams.get('item');
+    if (selectedItem) {
+      document.getElementById('item').value = selectedItem;
+    }
+
+    // Alert after order submitted
+    document.getElementById('orderForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      alert(`Thank you! Your order for ${document.getElementById('item').value} has been received. 😋 Why not order another one?`);
+      this.reset();
+      if (selectedItem) {
+        document.getElementById('item').value = selectedItem; // refill first item to encourage second order
+      }
+    });
+  </script>
+
+</body>
+</html>
