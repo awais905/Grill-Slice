@@ -1,137 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu - It's All About Coffee</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu - Food Bazar</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background-color: #121212;
-      color: #f1f1f1;
+      color: #f5f5f5;
     }
     header {
       background: #1e1e1e;
-      padding: 20px;
-      text-align: center;
-      font-size: 28px;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      color: #ffcc00;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
       font-weight: bold;
-      color: #d4a373;
+    }
+    nav a:hover {
+      color: #ffcc00;
+    }
+    .lang-btn {
+      background: #ffcc00;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
     }
     .menu-section {
-      max-width: 1100px;
-      margin: auto;
       padding: 40px 20px;
+      text-align: center;
     }
     .menu-section h2 {
-      text-align: center;
-      font-size: 26px;
-      margin-bottom: 25px;
-      color: #ffb347;
+      color: #ffcc00;
+      margin-bottom: 20px;
+      font-size: 28px;
+      border-bottom: 2px solid #ffcc00;
+      display: inline-block;
+      padding-bottom: 5px;
     }
-    .menu-grid {
+    .items {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
+      gap: 20px;
+      margin-top: 30px;
     }
-    .menu-item {
-      background: #1e1e1e;
-      padding: 20px;
+    .item {
+      background: #1f1f1f;
       border-radius: 12px;
+      padding: 15px;
       text-align: center;
-      box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
-      transition: transform 0.3s ease;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
-    .menu-item:hover {
-      transform: scale(1.05);
-    }
-    .menu-item img {
+    .item img {
       width: 100%;
       height: 180px;
-      object-fit: cover;
       border-radius: 10px;
-      margin-bottom: 15px;
+      object-fit: cover;
     }
-    .menu-item h3 {
-      font-size: 20px;
+    .item h3 {
       margin: 10px 0 5px;
-      color: #ffdd99;
+      color: #fff;
     }
-    .menu-item p {
+    .item p {
+      color: #bbb;
       font-size: 14px;
-      color: #ccc;
     }
   </style>
 </head>
 <body>
-  <header>🍴 Our Menu | ہمارا مینو</header>
+  <header>
+    <h1>Food Bazar</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="lang-btn">اردو</button>
+  </header>
 
-  <!-- Burgers -->
+  <!-- Burgers Section -->
   <section class="menu-section">
-    <h2>🍔 Burgers | برگر</h2>
-    <div class="menu-grid">
-      <div class="menu-item">
-        <img src="https://source.unsplash.com/400x300/?burger" alt="Zinger Burger">
-        <h3>Zinger Burger | زنگر برگر</h3>
-        <p>چکن، سلاد، مایونیز، بن</p>
+    <h2>Burgers 🍔</h2>
+    <div class="items">
+      <div class="item">
+        <img src="https://source.unsplash.com/400x300/?burger" alt="Beef Burger">
+        <h3>Beef Burger</h3>
+        <p>Juicy beef patty, fresh veggies & cheese</p>
       </div>
-      <div class="menu-item">
+      <div class="item">
         <img src="https://source.unsplash.com/400x300/?cheeseburger" alt="Cheese Burger">
-        <h3>Cheese Burger | چیز برگر</h3>
-        <p>بیف، چیز، لیٹش، ساس</p>
+        <h3>Cheese Burger</h3>
+        <p>Loaded with melted cheddar cheese</p>
       </div>
-      <div class="menu-item">
-        <img src="https://source.unsplash.com/400x300/?chicken-burger" alt="Chicken Burger">
-        <h3>Chicken Burger | چکن برگر</h3>
-        <p>چکن پیٹی، ٹماٹر، سوس</p>
+      <div class="item">
+        <img src="https://source.unsplash.com/400x300/?chickenburger" alt="Chicken Burger">
+        <h3>Chicken Burger</h3>
+        <p>Crispy chicken fillet with mayo & lettuce</p>
       </div>
     </div>
   </section>
 
-  <!-- Pizza -->
+  <!-- Pizza Section -->
   <section class="menu-section">
-    <h2>🍕 Pizza | پیزا</h2>
-    <div class="menu-grid">
-      <div class="menu-item">
-        <img src="https://source.unsplash.com/400x300/?pizza" alt="Cheese Pizza">
-        <h3>Cheese Pizza | چیز پیزا</h3>
-        <p>چیز، ٹماٹر، اوریگانو</p>
+    <h2>Pizza 🍕</h2>
+    <div class="items">
+      <div class="item">
+        <img src="https://source.unsplash.com/400x300/?pizza" alt="Margherita Pizza">
+        <h3>Margherita</h3>
+        <p>Classic cheese & tomato pizza</p>
       </div>
-      <div class="menu-item">
+      <div class="item">
         <img src="https://source.unsplash.com/400x300/?pepperoni-pizza" alt="Pepperoni Pizza">
-        <h3>Pepperoni Pizza | پیپرونی پیزا</h3>
-        <p>بیف پیپرونی، چیز، ساس</p>
+        <h3>Pepperoni</h3>
+        <p>Spicy pepperoni with mozzarella</p>
       </div>
-      <div class="menu-item">
-        <img src="https://source.unsplash.com/400x300/?vegetable-pizza" alt="Vegetable Pizza">
-        <h3>Vegetable Pizza | ویجیٹیبل پیزا</h3>
-        <p>سبزیاں، چیز، ساس</p>
+      <div class="item">
+        <img src="https://source.unsplash.com/400x300/?veggie-pizza" alt="Veggie Pizza">
+        <h3>Veggie Pizza</h3>
+        <p>Loaded with fresh vegetables</p>
       </div>
     </div>
   </section>
 
-  <!-- Fast Food -->
+  <!-- Fast Food Section -->
   <section class="menu-section">
-    <h2>🍟 Fast Food | فاسٹ فوڈ</h2>
-    <div class="menu-grid">
-      <div class="menu-item">
+    <h2>Fast Food 🍟</h2>
+    <div class="items">
+      <div class="item">
         <img src="https://source.unsplash.com/400x300/?fries" alt="French Fries">
-        <h3>French Fries | فرینچ فرائز</h3>
-        <p>آلو، نمک، تیل</p>
+        <h3>French Fries</h3>
+        <p>Crispy golden potato fries</p>
       </div>
-      <div class="menu-item">
+      <div class="item">
         <img src="https://source.unsplash.com/400x300/?sandwich" alt="Club Sandwich">
-        <h3>Club Sandwich | کلب سینڈوچ</h3>
-        <p>چکن، انڈہ، سلاد</p>
+        <h3>Club Sandwich</h3>
+        <p>Triple layered with chicken & veggies</p>
       </div>
-      <div class="menu-item">
-        <img src="https://source.unsplash.com/400x300/?shawarma" alt="Shawarma Roll">
-        <h3>Shawarma Roll | شاورما رول</h3>
-        <p>چکن، سبزیاں، ساس</p>
+      <div class="item">
+        <img src="https://source.unsplash.com/400x300/?shawarma" alt="Shawarma">
+        <h3>Chicken Shawarma</h3>
+        <p>Stuffed pita with chicken & sauces</p>
       </div>
     </div>
   </section>
-
 </body>
 </html>
