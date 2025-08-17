@@ -46,19 +46,34 @@ nav a:hover{color:#ffd966;}
 .punchline{text-align:center; font-size:1.2rem; color:#ffd966; margin-bottom:30px;}
 
 /* Menu Section */
-.menu-section{padding:20px; display:flex; flex-wrap:wrap; justify-content:center; gap:25px;}
-.menu-card{background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border-radius:15px; overflow:hidden; width:250px; text-align:center; cursor:pointer; padding:15px; transition:0.3s;}
-.menu-card:hover{transform:scale(1.03);}
-.menu-card img{height:150px; object-fit:cover; margin-bottom:15px;}
-.menu-card h3{color:#ffd966; margin-bottom:10px;}
-.menu-card p{color:#ccc; font-size:0.9rem; margin-bottom:10px;}
+.menu-section{padding:20px; display:flex; flex-direction:column; align-items:center; gap:15px;}
+.menu-card{
+  background: linear-gradient(45deg,#ffb400,#e0a000);
+  color:#000;
+  font-weight:600;
+  padding:10px;
+  border-radius:12px;
+  font-size:1rem;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  width:90%;
+  max-width:700px;
+  transition:0.3s;
+}
+.menu-card:hover{transform:scale(1.02);}
+.menu-card img{width:100px; height:100px; object-fit:cover; border-radius:10px;}
+.menu-card .menu-info{text-align:left;}
+.menu-card .menu-info h4{margin-bottom:5px;}
+.menu-card .menu-info p{font-weight:400; font-size:0.9rem; color:#1a1a1a;}
 
 /* Footer */
 footer{background:#121212;text-align:center;padding:20px;color:#aaa;margin-top:50px; font-size:0.9rem;}
 
 /* Responsive */
-@media(max-width:768px){header{padding:15px 20px;} nav{gap:10px;} .menu-card{width:45%;}}
-@media(max-width:480px){.menu-card{width:100%;} .top-controls{flex-direction:column; gap:10px; align-items:flex-start;}}
+@media(max-width:768px){header{padding:15px 20px;} nav{gap:10px;} .menu-card{flex-direction:column; align-items:flex-start;}}
+@media(max-width:480px){.menu-card{width:100%;}}
 </style>
 </head>
 <body>
@@ -79,66 +94,145 @@ footer{background:#121212;text-align:center;padding:20px;color:#aaa;margin-top:5
     </select>
     <a href="contact.html" class="online-order golden-btn" id="online-btn">Online Order</a>
   </div>
-  <div class="punchline">Delicious pizza, burgers & fast food – freshly prepared for you!</div>
+  <div class="punchline" id="punchline">Delicious pizza, burgers & fast food – freshly prepared for you!</div>
 </header>
 
 <!-- Menu Section -->
 <section class="menu-section">
-  <!-- Pizza -->
+  <!-- Pizza Items -->
   <div class="menu-card" onclick="location.href='contact.html'">
-    <img src="https://images.unsplash.com/photo-1601924577820-7f2c6a2e5d1d?auto=format&fit=crop&w=400&q=80" alt="Pizza">
-    <h3 id="pizza-title">Pizza</h3>
-    <p id="pizza-desc">Vegetable, BBQ Chicken, Margherita, Pepperoni, Spicy Beef, Hawaiian, Fajita, Chicken Tikka</p>
+    <img src="https://images.unsplash.com/photo-1601924577820-7f2c6a2e5d1d?auto=format&fit=crop&w=100&q=80" alt="Vegetable Pizza">
+    <div class="menu-info">
+      <h4 id="veg-pizza">Vegetable Pizza</h4>
+      <p>Fresh vegetables, cheese, tomato sauce</p>
+    </div>
   </div>
-  <!-- Burger -->
   <div class="menu-card" onclick="location.href='contact.html'">
-    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=400&q=80" alt="Burger">
-    <h3 id="burger-title">Burgers</h3>
-    <p id="burger-desc">Beef, Chicken, Veggie, Cheese, Spicy Chicken</p>
+    <img src="https://images.unsplash.com/photo-1594007659547-9a90c0a0d30f?auto=format&fit=crop&w=100&q=80" alt="BBQ Chicken Pizza">
+    <div class="menu-info">
+      <h4 id="bbq-pizza">BBQ Chicken Pizza</h4>
+      <p>Grilled chicken, BBQ sauce, cheese</p>
+    </div>
   </div>
-  <!-- Fast Food -->
   <div class="menu-card" onclick="location.href='contact.html'">
-    <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=400&q=80" alt="Fast Food">
-    <h3 id="fast-title">Fast Food</h3>
-    <p id="fast-desc">French Fries, Nuggets, Sandwiches, Hot Dog, Wings</p>
+    <img src="https://images.unsplash.com/photo-1601924577820-7f2c6a2e5d1d?auto=format&fit=crop&w=100&q=80" alt="Margherita Pizza">
+    <div class="menu-info">
+      <h4 id="marg-pizza">Margherita Pizza</h4>
+      <p>Classic tomato, mozzarella, basil</p>
+    </div>
+  </div>
+  <div class="menu-card" onclick="location.href='contact.html'">
+    <img src="https://images.unsplash.com/photo-1594007659547-9a90c0a0d30f?auto=format&fit=crop&w=100&q=80" alt="Pepperoni Pizza">
+    <div class="menu-info">
+      <h4 id="pepperoni-pizza">Pepperoni Pizza</h4>
+      <p>Pepperoni slices, cheese, tomato sauce</p>
+    </div>
+  </div>
+  <div class="menu-card" onclick="location.href='contact.html'">
+    <img src="https://images.unsplash.com/photo-1601924577820-7f2c6a2e5d1d?auto=format&fit=crop&w=100&q=80" alt="Spicy Beef Pizza">
+    <div class="menu-info">
+      <h4 id="spicybeef-pizza">Spicy Beef Pizza</h4>
+      <p>Spiced beef, cheese, fresh veggies</p>
+    </div>
+  </div>
+  <div class="menu-card" onclick="location.href='contact.html'">
+    <img src="https://images.unsplash.com/photo-1594007659547-9a90c0a0d30f?auto=format&fit=crop&w=100&q=80" alt="Hawaiian Pizza">
+    <div class="menu-info">
+      <h4 id="hawaiian-pizza">Hawaiian Pizza</h4>
+      <p>Ham, pineapple, cheese</p>
+    </div>
+  </div>
+  <div class="menu-card" onclick="location.href='contact.html'">
+    <img src="https://images.unsplash.com/photo-1601924577820-7f2c6a2e5d1d?auto=format&fit=crop&w=100&q=80" alt="Fajita Pizza">
+    <div class="menu-info">
+      <h4 id="fajita-pizza">Fajita Pizza</h4>
+      <p>Chicken, peppers, onions, cheese</p>
+    </div>
+  </div>
+  <div class="menu-card" onclick="location.href='contact.html'">
+    <img src="https://images.unsplash.com/photo-1594007659547-9a90c0a0d30f?auto=format&fit=crop&w=100&q=80" alt="Chicken Tikka Pizza">
+    <div class="menu-info">
+      <h4 id="chickentikka-pizza">Chicken Tikka Pizza</h4>
+      <p>Spiced chicken tikka, cheese, onions</p>
+    </div>
+  </div>
+
+  <!-- Burger Items -->
+  <h2 style="color:#ffd966; margin:20px 0 10px 0; width:90%; text-align:left;">Burgers</h2>
+  <div class="menu-card" onclick="location.href='contact.html'">
+    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=100&q=80" alt="Beef Burger">
+    <div class="menu-info">
+      <h4 id="beef-burger">Beef Burger</h4>
+      <p>Juicy beef patty with fresh toppings</p>
+    </div>
+  </div>
+  <div class="menu-card" onclick="location.href='contact.html'">
+    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=100&q=80" alt="Chicken Burger">
+    <div class="menu-info">
+      <h4 id="chicken-burger">Chicken Burger</h4>
+      <p>Grilled chicken with lettuce and sauces</p>
+    </div>
+  </div>
+  <div class="menu-card" onclick="location.href='contact.html'">
+    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=100&q=80" alt="Veggie Burger">
+    <div class="menu-info">
+      <h4 id="veggie-burger">Veggie Burger</h4>
+      <p>Fresh vegetables with cheese and sauces</p>
+    </div>
+  </div>
+  <div class="menu-card" onclick="location.href='contact.html'">
+    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=100&q=80" alt="Cheese Burger">
+    <div class="menu-info">
+      <h4 id="cheese-burger">Cheese Burger</h4>
+      <p>Cheese, fresh vegetables, sauces</p>
+    </div>
+  </div>
+  <div class="menu-card" onclick="location.href='contact.html'">
+    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=100&q=80" alt="Spicy Chicken Burger">
+    <div class="menu-info">
+      <h4 id="spicychicken-burger">Spicy Chicken Burger</h4>
+      <p>Spiced grilled chicken with cheese & sauces</p>
+    </div>
+  </div>
+
+  <!-- Fast Food Items -->
+  <h2 style="color:#ffd966; margin:20px 0 10px 0; width:90%; text-align:left;">Fast Food</h2>
+  <div class="menu-card" onclick="location.href='contact.html'">
+    <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=100&q=80" alt="French Fries">
+    <div class="menu-info">
+      <h4 id="fries">French Fries</h4>
+      <p>Crispy golden fries</p>
+    </div>
+  </div>
+  <div class="menu-card" onclick="location.href='contact.html'">
+    <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=100&q=80" alt="Nuggets">
+    <div class="menu-info">
+      <h4 id="nuggets">Nuggets</h4>
+      <p>Golden fried chicken nuggets</p>
+    </div>
+  </div>
+  <div class="menu-card" onclick="location.href='contact.html'">
+    <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=100&q=80" alt="Sandwiches">
+    <div class="menu-info">
+      <h4 id="sandwiches">Sandwiches</h4>
+      <p>Fresh sandwiches with sauces and fillings</p>
+    </div>
+  </div>
+  <div class="menu-card" onclick="location.href='contact.html'">
+    <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=100&q=80" alt="Hot Dog">
+    <div class="menu-info">
+      <h4 id="hotdog">Hot Dog</h4>
+      <p>Classic hot dog with mustard & ketchup</p>
+    </div>
+  </div>
+  <div class="menu-card" onclick="location.href='contact.html'">
+    <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=100&q=80" alt="Wings">
+    <div class="menu-info">
+      <h4 id="wings">Wings</h4>
+      <p>Spicy and crispy chicken wings</p>
+    </div>
   </div>
 </section>
 
 <!-- Footer -->
 <footer>
-  Location: Muzaffargarh | Phone: 03080432842 | Business Hours: 24/7<br>
-  &copy; 2025 Grill & Slice. All Rights Reserved.
-</footer>
-
-<!-- Language Script -->
-<script>
-const translations={
-  en:{pizzaTitle:"Pizza", pizzaDesc:"Vegetable, BBQ Chicken, Margherita, Pepperoni, Spicy Beef, Hawaiian, Fajita, Chicken Tikka",
-      burgerTitle:"Burgers", burgerDesc:"Beef, Chicken, Veggie, Cheese, Spicy Chicken",
-      fastTitle:"Fast Food", fastDesc:"French Fries, Nuggets, Sandwiches, Hot Dog, Wings",
-      onlineBtn:"Online Order", punch:"Delicious pizza, burgers & fast food – freshly prepared for you!"},
-  ur:{pizzaTitle:"پیزا", pizzaDesc:"سبزی، بی بی کیو چکن، مارگریٹا، پیپرونی، مصالحہ دار بیف، ہوائی، فجیٹا، چکن تکہ",
-      burgerTitle:"برگر", burgerDesc:"بیف، چکن، سبزی، چیز، مصالحہ دار چکن",
-      fastTitle:"فاسٹ فوڈ", fastDesc:"فرنچ فرائز، نگٹس، سینڈوچ، ہاٹ ڈاگ، وِنگز",
-      onlineBtn:"آن لائن آرڈر", punch:"مزیدار پیزا، برگر اور فاسٹ فوڈ – تازہ تیار!"},
-  srk:{pizzaTitle:"پیزا", pizzaDesc:"سبزی، بی بی کیو چکن، مارگریٹا، پیپرونی، مصالحہ دار بیف، ہوائی، فجیٹا، چکن تکہ",
-      burgerTitle:"برگر", burgerDesc:"بیف، چکن، سبزی، چیز، مصالحہ دار چکن",
-      fastTitle:"فاسٹ فوڈ", fastDesc:"فرنچ فرائز، نگٹس، سینڈوچ، ہاٹ ڈاگ، وِنگز",
-      onlineBtn:"آن لائن آرڈر", punch:"مزیدار پیزا، برگر اور فاسٹ فوڈ – تازہ تیار!"}
-};
-
-function setLang(lang){
-  document.body.style.direction=(lang==='ur'||lang==='srk')?'rtl':'ltr';
-  document.getElementById('pizza-title').textContent=translations[lang].pizzaTitle;
-  document.getElementById('pizza-desc').textContent=translations[lang].pizzaDesc;
-  document.getElementById('burger-title').textContent=translations[lang].burgerTitle;
-  document.getElementById('burger-desc').textContent=translations[lang].burgerDesc;
-  document.getElementById('fast-title').textContent=translations[lang].fastTitle;
-  document.getElementById('fast-desc').textContent=translations[lang].fastDesc;
-  document.getElementById('online-btn').textContent=translations[lang].onlineBtn;
-  document.querySelector('.punchline').textContent=translations[lang].punch;
-}
-</script>
-
-</body>
-</html>
