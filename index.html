@@ -1,117 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grill & Slice</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Grill and Slice</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #1a1a1a;
+      background-color: #111;
       color: #fff;
-      text-align: center;
     }
+
     header {
-      background: #b22222;
+      text-align: center;
       padding: 20px;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
+
+    /* Language Dropdown */
+    .language-select {
+      margin-bottom: 10px;
     }
-    nav {
-      margin-top: 10px;
-    }
-    nav a {
-      color: #fff;
-      margin: 0 15px;
-      text-decoration: none;
+    .language-select select {
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: none;
       font-weight: bold;
+      background: #ff4500;
+      color: #fff;
+      cursor: pointer;
     }
-    nav a:hover {
-      text-decoration: underline;
+
+    /* Carousel */
+    .carousel {
+      position: relative;
+      width: 100%;
+      max-height: 500px;
+      overflow: hidden;
     }
-    .language-switcher {
-      margin: 15px 0;
+    .carousel img {
+      width: 100%;
+      display: none;
+      object-fit: cover;
     }
-    select {
-      padding: 5px;
-      font-size: 1rem;
-      border-radius: 5px;
+    .carousel img.active {
+      display: block;
     }
-    .hero {
+    .carousel-text {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.6);
+      padding: 15px 25px;
+      border-radius: 12px;
+      font-size: 1.5rem;
+    }
+
+    main {
       padding: 40px 20px;
+      text-align: center;
     }
-    .hero img {
-      width: 200px;
-      margin: 15px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-    }
-    .footer {
-      margin-top: 30px;
-      background: #b22222;
-      padding: 15px;
+
+    h1 {
+      font-size: 2.2rem;
+      color: #ffcc00;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Grill & Slice</h1>
-    <nav>
-      <a href="index.html" data-en="Home" data-ur="ہوم" data-sa="ہوم">Home</a>
-      <a href="about.html" data-en="About" data-ur="ہمارے بارے میں" data-sa="ساڈی پہچان">About</a>
-      <a href="menu.html" data-en="Menu" data-ur="مینو" data-sa="کھابا">Menu</a>
-      <a href="contact.html" data-en="Contact" data-ur="رابطہ کریں" data-sa="رابطہ">Contact</a>
-    </nav>
+    <!-- Language Button -->
+    <div class="language-select">
+      <select id="languageSwitcher">
+        <option value="en">English</option>
+        <option value="ur">اردو</option>
+        <option value="skr">سرائیکی</option>
+      </select>
+    </div>
+    <h1 id="welcomeText">Welcome to Grill and Slice</h1>
   </header>
 
-  <!-- Language Switcher -->
-  <div class="language-switcher">
-    <label for="lang">🌐 </label>
-    <select id="lang">
-      <option value="en">English</option>
-      <option value="ur">اردو</option>
-      <option value="sa">سرائیکی</option>
-    </select>
+  <!-- Image Carousel -->
+  <div class="carousel">
+    <img src="images/burger.jpg" class="active" alt="Delicious Burger">
+    <img src="images/pizza.jpg" alt="Cheesy Pizza">
+    <img src="images/fries.jpg" alt="Crispy Fries">
+    <div class="carousel-text">Grill and Slice – Taste the Difference</div>
   </div>
 
-  <section class="hero">
-    <h2 id="welcome" data-en="Welcome to Grill & Slice" data-ur="گرل اینڈ سلائس میں خوش آمدید" data-sa="گرل اینڈ سلائس وچ آپ دا سواگت اے">
-      Welcome to Grill & Slice
-    </h2>
-    <p id="desc" data-en="The best pizzas, burgers, and fast food in Muzaffargarh." 
-       data-ur="مظفرگڑھ میں بہترین پیزا، برگر اور فاسٹ فوڈ۔" 
-       data-sa="مظفرگڑھ وچ سب توں چنگے برگر، پیزا تے فاسٹ فوڈ۔">
-       The best pizzas, burgers, and fast food in Muzaffargarh.
+  <main>
+    <p id="introText">
+      Experience the most delicious burgers, pizzas, and fast food delights in South Punjab!
     </p>
-
-    <!-- Food Images -->
-    <div>
-      <img src="https://i.ibb.co/hVDvWyz/burger.jpg" alt="Burger">
-      <img src="https://i.ibb.co/4jF7L7g/pizza.jpg" alt="Pizza">
-    </div>
-  </section>
-
-  <footer class="footer">
-    <p data-en="© 2025 Grill & Slice. All rights reserved." 
-       data-ur="© 2025 گرل اینڈ سلائس۔ جملہ حقوق محفوظ ہیں۔" 
-       data-sa="© 2025 گرل اینڈ سلائس۔ سارے حق محفوظ نیں۔">
-       © 2025 Grill & Slice. All rights reserved.
-    </p>
-  </footer>
+  </main>
 
   <script>
-    const langSelect = document.getElementById('lang');
-    const elements = document.querySelectorAll('[data-en]');
+    // Language Switcher
+    const translations = {
+      en: {
+        welcome: "Welcome to Grill and Slice",
+        intro: "Experience the most delicious burgers, pizzas, and fast food delights in South Punjab!"
+      },
+      ur: {
+        welcome: "گرل اینڈ سلائس میں خوش آمدید",
+        intro: "جنوبی پنجاب میں سب سے مزیدار برگر، پیزا اور فاسٹ فوڈ کا لطف اٹھائیں!"
+      },
+      skr: {
+        welcome: "گرل تے سلائس آندھے خیرمقدم",
+        intro: "جنوبی پنجاب دے سوادلے برگر، پیزا تے فاسٹ فوڈ دا مزا لو!"
+      }
+    };
 
-    langSelect.addEventListener('change', () => {
-      const lang = langSelect.value;
-      elements.forEach(el => {
-        el.innerText = el.getAttribute(`data-${lang}`);
-      });
+    const languageSwitcher = document.getElementById("languageSwitcher");
+    const welcomeText = document.getElementById("welcomeText");
+    const introText = document.getElementById("introText");
+
+    languageSwitcher.addEventListener("change", () => {
+      const lang = languageSwitcher.value;
+      welcomeText.textContent = translations[lang].welcome;
+      introText.textContent = translations[lang].intro;
     });
+
+    // Carousel
+    const slides = document.querySelectorAll(".carousel img");
+    let index = 0;
+    setInterval(() => {
+      slides[index].classList.remove("active");
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("active");
+    }, 3000);
   </script>
 </body>
 </html>
