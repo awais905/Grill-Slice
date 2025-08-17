@@ -1,131 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gril & Slice - Menu</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: #fff;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gril & Slice — Menu</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#111;color:#fff;font-family:'Poppins',sans-serif}
+  a{text-decoration:none;color:inherit}
 
-    header {
-      background: #222;
-      padding: 15px;
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: gold;
-    }
+  /* Header */
+  header{position:sticky;top:0;z-index:10;background:#1e1e1e;backdrop-filter:blur(6px)}
+  .bar{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;max-width:1100px;margin:0 auto}
+  .logo{font-weight:800;color:#ffd966;font-size:1.6rem;line-height:1}
+  nav{display:flex;align-items:center;gap:22px}
+  nav a:hover{color:#ffd966}
+  .top-right{display:flex;align-items:center;gap:10px}
+  .btn-gold,.dd-gold{
+    background:linear-gradient(45deg,#ffb400,#e0a000);
+    color:#000;border:none;border-radius:10px;font-weight:700;cursor:pointer
+  }
+  .dd-gold{padding:8px 12px}
+  .btn-gold{padding:10px 16px;display:inline-block}
 
-    .menu {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-      padding: 30px;
-    }
+  .punch{max-width:1100px;margin:10px auto 0;padding:0 18px 14px;color:#ffd966;text-align:center;font-size:1.05rem}
 
-    .item {
-      background: gold;
-      color: black;
-      padding: 12px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0px 4px 10px rgba(0,0,0,0.6);
-      transition: 0.3s;
-    }
+  /* Menu list (vertical) */
+  .menu-wrap{max-width:560px;margin:0 auto 40px;padding:0 16px;display:flex;flex-direction:column;gap:10px}
 
-    .item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0px 6px 15px rgba(0,0,0,0.8);
-    }
-
-    .item img {
-      width: 100%;
-      height: 100px; /* Smaller rectangle size */
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 8px;
-    }
-
-    .item h3 {
-      margin: 4px 0;
-      font-size: 1rem;
-    }
-
-    .item p {
-      font-size: 0.8rem;
-    }
-
-    .item a {
-      display: inline-block;
-      margin-top: 6px;
-      padding: 6px 12px;
-      background: black;
-      color: gold;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 6px;
-      transition: 0.3s;
-    }
-
-    .item a:hover {
-      background: #333;
-    }
-  </style>
+  /* Compact golden card */
+  .menu-card{
+    display:block;
+    background:linear-gradient(45deg,#ffb400,#e0a000);
+    color:#000;
+    border-radius:16px;
+    padding:10px;               /* tighter padding */
+    box-shadow:0 8px 18px rgba(0,0,0,.35);
+    transition:.25s transform,.25s box-shadow;
+  }
+  .menu-card:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,.45)}
+  .menu-card img{
+    width:100%;
+    height:90px;                /* much shorter image */
+    object-fit:cover;
+    border-radius:12px;
+    display:block;
+    background:#000;            /* fallback bg while loading */
+    margin-bottom:8px;
+  }
+  .menu-card h3{margin:0 0 4px;font-size:1rem}
+  .menu-card p{margin:0;font-size:.82rem;font-weight:500}
+  .section-title{
+    margin:16px auto 6px;
+    max-width:560px;
+    padding:0 18px;
+    color:#ffd966;
+    font-weight:700;
+    letter-spacing:.3px;
+  }
+</style>
 </head>
 <body>
 
-  <header>🍕 Our Premium Menu</header>
-
-  <section class="menu">
-
-    <div class="item">
-      <img src="https://images.unsplash.com/photo-1601924582971-df1bbf5d3a9a?auto=format&fit=crop&w=600&q=80" alt="Vegetable Pizza">
-      <h3>Vegetable Pizza</h3>
-      <p>Fresh vegetables, cheese, tomato sauce</p>
-      <a href="contact.html">Order Now</a>
+<header>
+  <div class="bar">
+    <div class="logo">Gril &amp; Slice</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="top-right">
+      <select class="dd-gold" onchange="setLang(this.value)">
+        <option value="en">Language</option>
+        <option value="en">English</option>
+        <option value="ur">Urdu</option>
+        <option value="srk">Saraiki</option>
+      </select>
+      <a class="btn-gold" href="contact.html">Order Online</a>
     </div>
+  </div>
+</header>
 
-    <div class="item">
-      <img src="https://images.unsplash.com/photo-1594007654729-407eedc4be65?auto=format&fit=crop&w=600&q=80" alt="BBQ Chicken Pizza">
-      <h3>BBQ Chicken Pizza</h3>
-      <p>Grilled chicken, BBQ sauce, cheese</p>
-      <a href="contact.html">Order Now</a>
-    </div>
+<p class="punch" id="punchline">Delicious pizza, burgers &amp; fast food – freshly prepared for you!</p>
 
-    <div class="item">
-      <img src="https://images.unsplash.com/photo-1601924579628-00665048f75b?auto=format&fit=crop&w=600&q=80" alt="Margherita Pizza">
-      <h3>Margherita Pizza</h3>
-      <p>Classic cheese & tomato sauce</p>
-      <a href="contact.html">Order Now</a>
-    </div>
+<h3 class="section-title">🍕 Pizzas</h3>
+<section class="menu-wrap">
 
-    <div class="item">
-      <img src="https://images.unsplash.com/photo-1548365328-9f547fdc0b36?auto=format&fit=crop&w=600&q=80" alt="Pepperoni Pizza">
-      <h3>Pepperoni Pizza</h3>
-      <p>Pepperoni, cheese, tomato sauce</p>
-      <a href="contact.html">Order Now</a>
-    </div>
+  <!-- Using reliable Unsplash Source (loads by keyword) -->
+  <a href="contact.html" class="menu-card">
+    <img src="https://source.unsplash.com/800x600/?vegetable,pizza" alt="Vegetable Pizza">
+    <h3>Vegetable Pizza</h3>
+    <p>Fresh vegetables, cheese, tomato sauce</p>
+  </a>
 
-    <div class="item">
-      <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=600&q=80" alt="Fries">
-      <h3>Fries</h3>
-      <p>Crispy golden fries</p>
-      <a href="contact.html">Order Now</a>
-    </div>
+  <a href="contact.html" class="menu-card">
+    <img src="https://source.unsplash.com/800x600/?bbq,chicken,pizza" alt="BBQ Chicken Pizza">
+    <h3>BBQ Chicken Pizza</h3>
+    <p>Grilled chicken, BBQ sauce, cheese</p>
+  </a>
 
-    <div class="item">
-      <img src="https://images.unsplash.com/photo-1626088351589-d5b89c3e28e9?auto=format&fit=crop&w=600&q=80" alt="Nuggets">
-      <h3>Nuggets</h3>
-      <p>Crunchy chicken nuggets</p>
-      <a href="contact.html">Order Now</a>
-    </div>
+  <a href="contact.html" class="menu-card">
+    <img src="https://source.unsplash.com/800x600/?margherita,pizza" alt="Margherita Pizza">
+    <h3>Margherita Pizza</h3>
+    <p>Classic mozzarella, basil, tomato</p>
+  </a>
 
-  </section>
+  <a href="contact.html" class="menu-card">
+    <img src="https://source.unsplash.com/800x600/?pepperoni,pizza" alt="Pepperoni Pizza">
+    <h3>Pepperoni Pizza</h3>
+    <p>Pepperoni slices, mozzarella, sauce</p>
+  </a>
+
+  <a href="contact.html" class="menu-card">
+    <img src="https://source.unsplash.com/800x600/?spicy,beef,pizza" alt="Spicy Beef Pizza">
+    <h3>Spicy Beef Pizza</h3>
+    <p>Seasoned beef, chilies, melted cheese</p>
+  </a>
+
+  <a href="contact.html" class="menu-card">
+    <img src="https://source.unsplash.com/800x600/?hawaiian,pizza" alt="Hawaiian Pizza">
+    <h3>Hawaiian Pizza</h3>
+    <p>Ham, pineapple, mozzarella</p>
+  </a>
+
+  <a href="contact.html" class="menu-card">
+    <img src="https://source.unsplash.com/800x600/?fajita,pizza" alt="Fajita Pizza">
+    <h3>Fajita Pizza</h3>
+    <p>Grilled chicken, peppers, onions</p>
+  </a>
+
+  <a href="contact.html" class="menu-card">
+    <img src="https://source.unsplash.com/800x600/?chicken,tikka,pizza" alt="Chicken Tikka Pizza">
+    <h3>Chicken Tikka Pizza</h3>
+    <p>Spiced chicken tikka, creamy cheese</p>
+  </a>
+</section>
+
+<h3 class="section-title">🍔 Burgers</h3>
+<section class="menu-wrap">
+  <a href="contact.html" class="menu-card">
+    <img src="https://source.unsplash.com/800x600/?beef,burger" alt="Beef Burger">
+    <h3>Beef Burger</h3>
+    <p>Juicy beef patty, cheese, fresh veggies</p>
+  </a>
+
+  <a href="contact.html" class="menu-card">
+    <img src="https://source.unsplash.com/800x600/?chicken,burger" alt="Chicken Burger">
+    <h3>Chicken Burger</h3>
+    <p>Grilled chicken, crisp lettuce, sauces</p>
+  </a>
+</section>
+
+<h3 class="section-title">🍟 Fast Food</h3>
+<section class="menu-wrap">
+  <a href="contact.html" class="menu-card">
+    <img src="https://source.unsplash.com/800x600/?fries" alt="Fries">
+    <h3>Fries</h3>
+    <p>Crispy golden potato fries</p>
+  </a>
+
+  <a href="contact.html" class="menu-card">
+    <img src="https://source.unsplash.com/800x600/?chicken,nuggets" alt="Nuggets">
+    <h3>Nuggets</h3>
+    <p>Crunchy chicken nuggets</p>
+  </a>
+</section>
+
+<footer style="text-align:center;color:#aaa;padding:26px 12px;background:#121212;margin-top:10px">
+  Location: Muzaffargarh • Phone: 03080432842 • Business Hours: 24/7<br>
+  &copy; 2025 Gril &amp; Slice. All rights reserved.
+</footer>
+
+<script>
+const translations={
+  en:{punchline:"Delicious pizza, burgers & fast food – freshly prepared for you!"},
+  ur:{punchline:"مزیدار پیزا، برگر اور فاسٹ فوڈ – تازہ تیار!"},
+  srk:{punchline:"مزیدار پیزا، برگر تے فاسٹ فوڈ – تازہ تیار!"}
+};
+function setLang(lang){
+  document.getElementById('punchline').textContent = translations[lang]?.punchline || translations.en.punchline;
+}
+</script>
 
 </body>
 </html>
