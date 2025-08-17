@@ -9,26 +9,23 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 body{background:#1a1a1a;color:#fff;transition:0.3s;}
 a{text-decoration:none;color:inherit;}
-img{max-width:100%;display:block;}
-button{background:linear-gradient(45deg,#ffb400,#e0a000);color:#000;padding:10px 20px;border:none;border-radius:6px;font-weight:600;cursor:pointer;transition:0.3s;}
-button:hover{opacity:0.9;}
+img{width:100%;display:block;border-radius:10px;}
 header{padding:20px 50px;display:flex;justify-content:space-between;align-items:center;background: rgba(20,20,20,0.95);backdrop-filter: blur(5px);position: sticky; top:0; z-index:10;}
 .logo{font-size:1.8rem;font-weight:700;color:#ffd966;}
 nav a{margin-left:25px;font-weight:500;color:#fff;transition:0.3s;}
 nav a:hover{color:#ffd966;}
 .top-buttons{display:flex;align-items:center;}
 .top-buttons select{margin-right:15px;padding:6px 12px;border-radius:6px;border:none;background:linear-gradient(45deg,#ffb400,#e0a000);font-weight:600;color:#000;cursor:pointer;}
-.top-buttons a{padding:8px 18px;border-radius:6px;margin-left:10px;}
-.menu-section{padding:40px 20px; display:flex; flex-wrap:wrap; gap:20px; justify-content:center;}
-.menu-card{background: rgba(255,255,255,0.05);backdrop-filter: blur(10px);border-radius:12px;width:200px;text-align:center;cursor:pointer;padding:15px;transition:0.3s;}
-.menu-card:hover{transform:scale(1.03);}
-.menu-card img{height:130px; object-fit:cover; border-radius:10px; margin-bottom:10px;}
-.menu-card h3{color:#ffd966;margin-bottom:6px;font-size:1rem;}
-.menu-card p{color:#ccc;font-size:0.8rem;margin-bottom:10px;}
+.top-buttons a{padding:8px 18px;border-radius:6px;margin-left:10px;background:linear-gradient(45deg,#ffb400,#e0a000);color:#000;font-weight:600;text-align:center;}
 .punchline{text-align:center;margin:20px 0;font-size:1.1rem;color:#ffd966;}
+.menu-section{padding:20px; display:flex; flex-direction:column; gap:15px; align-items:center;}
+.menu-card{background:linear-gradient(45deg,#ffb400,#e0a000);border-radius:12px;width:90%;max-width:400px;text-align:center;cursor:pointer;padding:10px;transition:0.3s; color:#000; font-weight:600; text-decoration:none; display:block;}
+.menu-card img{height:180px; object-fit:cover; margin-bottom:10px;}
+.menu-card h3{margin-bottom:5px;}
+.menu-card p{margin-bottom:10px;font-size:0.9rem;}
+.menu-card:hover{transform:scale(1.03);}
 footer{background:#121212;text-align:center;padding:20px;color:#aaa;margin-top:50px; font-size:0.9rem;}
-@media(max-width:768px){header{padding:15px 20px;} nav a{margin-left:15px;} .menu-card{width:45%;} }
-@media(max-width:480px){.menu-card{width:100%;}}
+@media(max-width:768px){header{padding:15px 20px;} nav a{margin-left:15px;} .menu-card{width:95%;}}
 </style>
 </head>
 <body>
@@ -46,7 +43,7 @@ footer{background:#121212;text-align:center;padding:20px;color:#aaa;margin-top:5
         <option value="ur">Urdu</option>
         <option value="srk">Saraiki</option>
       </select>
-      <a href="contact.html" class="btn">Order Online</a>
+      <a href="contact.html">Order Online</a>
     </div>
   </nav>
 </header>
@@ -54,101 +51,57 @@ footer{background:#121212;text-align:center;padding:20px;color:#aaa;margin-top:5
 <div class="punchline" id="punchline">Delicious pizza, burgers & fast food – freshly prepared for you!</div>
 
 <section class="menu-section">
+
   <!-- Pizza Items -->
-  <div class="menu-card">
+  <a href="contact.html" class="menu-card">
     <img src="https://images.unsplash.com/photo-1594007659547-9a90c0a0d30f?auto=format&fit=crop&w=400&q=80" alt="Vegetable Pizza">
-    <h3 id="veg-pizza">Vegetable Pizza</h3>
+    <h3>Vegetable Pizza</h3>
     <p>Fresh vegetables, cheese, tomato sauce</p>
-  </div>
-  <div class="menu-card">
+  </a>
+
+  <a href="contact.html" class="menu-card">
     <img src="https://images.unsplash.com/photo-1601924577820-7f2c6a2e5d1d?auto=format&fit=crop&w=400&q=80" alt="BBQ Chicken Pizza">
-    <h3 id="bbq-pizza">BBQ Chicken Pizza</h3>
+    <h3>BBQ Chicken Pizza</h3>
     <p>Grilled chicken, BBQ sauce, cheese</p>
-  </div>
-  <div class="menu-card">
+  </a>
+
+  <a href="contact.html" class="menu-card">
     <img src="https://images.unsplash.com/photo-1601924577820-7f2c6a2e5d1d?auto=format&fit=crop&w=400&q=80" alt="Margherita Pizza">
-    <h3 id="marg-pizza">Margherita Pizza</h3>
+    <h3>Margherita Pizza</h3>
     <p>Classic tomato, mozzarella, basil</p>
-  </div>
-  <div class="menu-card">
+  </a>
+
+  <a href="contact.html" class="menu-card">
     <img src="https://images.unsplash.com/photo-1603079602554-57f253c6b7ec?auto=format&fit=crop&w=400&q=80" alt="Pepperoni Pizza">
-    <h3 id="pepperoni-pizza">Pepperoni Pizza</h3>
+    <h3>Pepperoni Pizza</h3>
     <p>Pepperoni slices, cheese, tomato sauce</p>
-  </div>
-  <div class="menu-card">
-    <img src="https://images.unsplash.com/photo-1585238342028-3222a3e0fc33?auto=format&fit=crop&w=400&q=80" alt="Spicy Beef Pizza">
-    <h3 id="spicybeef-pizza">Spicy Beef Pizza</h3>
-    <p>Spiced beef, cheese, fresh veggies</p>
-  </div>
-  <div class="menu-card">
-    <img src="https://images.unsplash.com/photo-1601924577812-7f2c6a2e5d1d?auto=format&fit=crop&w=400&q=80" alt="Hawaiian Pizza">
-    <h3 id="hawaiian-pizza">Hawaiian Pizza</h3>
-    <p>Ham, pineapple, cheese</p>
-  </div>
-  <div class="menu-card">
-    <img src="https://images.unsplash.com/photo-1594007659547-9a90c0a0d30f?auto=format&fit=crop&w=400&q=80" alt="Fajita Pizza">
-    <h3 id="fajita-pizza">Fajita Pizza</h3>
-    <p>Chicken, peppers, onions, cheese</p>
-  </div>
-  <div class="menu-card">
-    <img src="https://images.unsplash.com/photo-1601924577820-7f2c6a2e5d1d?auto=format&fit=crop&w=400&q=80" alt="Chicken Tikka Pizza">
-    <h3 id="chickentikka-pizza">Chicken Tikka Pizza</h3>
-    <p>Spiced chicken tikka, cheese, onions</p>
-  </div>
+  </a>
 
   <!-- Burger Items -->
-  <div class="menu-card">
+  <a href="contact.html" class="menu-card">
     <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=400&q=80" alt="Beef Burger">
-    <h3 id="beef-burger">Beef Burger</h3>
+    <h3>Beef Burger</h3>
     <p>Juicy beef patty, lettuce, tomato, cheese</p>
-  </div>
-  <div class="menu-card">
+  </a>
+
+  <a href="contact.html" class="menu-card">
     <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=400&q=80" alt="Chicken Burger">
-    <h3 id="chicken-burger">Chicken Burger</h3>
+    <h3>Chicken Burger</h3>
     <p>Grilled chicken, fresh veggies, sauces</p>
-  </div>
-  <div class="menu-card">
-    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=400&q=80" alt="Veggie Burger">
-    <h3 id="veggie-burger">Veggie Burger</h3>
-    <p>Vegetable patty, lettuce, tomato, cheese</p>
-  </div>
-  <div class="menu-card">
-    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=400&q=80" alt="Spicy Burger">
-    <h3 id="spicy-burger">Spicy Burger</h3>
-    <p>Spicy chicken/beef patty, fresh toppings</p>
-  </div>
-  <div class="menu-card">
-    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=400&q=80" alt="Cheese Burger">
-    <h3 id="cheese-burger">Cheese Burger</h3>
-    <p>Cheesy goodness with beef/chicken patty</p>
-  </div>
+  </a>
 
   <!-- Fast Food Items -->
-  <div class="menu-card">
+  <a href="contact.html" class="menu-card">
     <img src="https://images.unsplash.com/photo-1604908177523-f5c0f374a1e2?auto=format&fit=crop&w=400&q=80" alt="Fries">
-    <h3 id="fries">Fries</h3>
+    <h3>Fries</h3>
     <p>Crispy golden potato fries</p>
-  </div>
-  <div class="menu-card">
+  </a>
+
+  <a href="contact.html" class="menu-card">
     <img src="https://images.unsplash.com/photo-1604908177523-f5c0f374a1e2?auto=format&fit=crop&w=400&q=80" alt="Nuggets">
-    <h3 id="nuggets">Nuggets</h3>
+    <h3>Nuggets</h3>
     <p>Chicken nuggets, crispy outside, juicy inside</p>
-  </div>
-  <div class="menu-card">
-    <img src="https://images.unsplash.com/photo-1604908177523-f5c0f374a1e2?auto=format&fit=crop&w=400&q=80" alt="Hotdog">
-    <h3 id="hotdog">Hotdog</h3>
-    <p>Classic hotdog with ketchup and mustard</p>
-  </div>
-  <div class="menu-card">
-    <img src="https://images.unsplash.com/photo-1604908177523-f5c0f374a1e2?auto=format&fit=crop&w=400&q=80" alt="Shawarma">
-    <h3 id="shawarma">Shawarma</h3>
-    <p>Marinated chicken/beef, rolled in flatbread</p>
-  </div>
-  <div class="menu-card">
-    <img src="https://images.unsplash.com/photo-1604908177523-f5c0f374a1e2?auto=format&fit=crop&w=400&q=80" alt="Sandwich">
-    <h3 id="sandwich">Sandwich</h3>
-    <p>Fresh bread, veggies, choice of protein</p>
-  </div>
+  </a>
 
 </section>
 
