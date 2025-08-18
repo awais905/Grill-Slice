@@ -1,51 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact - Grill and Slice</title>
-  <link rel="stylesheet" href="styles.css"/>
-  <style>
-    /* Floating WhatsApp button */
-    .whatsapp-float {
-      position: fixed;
-      width: 60px;
-      height: 60px;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-      color: white;
-      border-radius: 50%;
-      text-align: center;
-      font-size: 28px;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-      z-index: 100;
-    }
-    .whatsapp-float i {
-      margin-top: 16px;
-    }
-    .whatsapp-float:hover {
-      background-color: #1ebc57;
-    }
-  </style>
-  <!-- FontAwesome for WhatsApp icon -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - It's All About Coffee</title>
+  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <!-- Contact Page Content -->
   <header>
-    <h1>Contact Us</h1>
+    <nav>
+      <div class="logo">It's All About Coffee</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="order.html">Order</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
-    <p>Phone: 03080432842</p>
-    <p>Email: grillandslice@gmail.com</p>
-    <p>Location: Muzaffargarh</p>
+    <section class="contact">
+      <h1>Contact Us</h1>
+      <p>We would love to hear from you! Please reach out using the details below or fill in the form.</p>
+
+      <div class="contact-info">
+        <p><strong>Phone:</strong> 03080432842</p>
+        <p><strong>Email:</strong> awaisaziz8832@gmail.com</p>
+        <p><strong>Location:</strong> Muzaffargarh</p>
+        <p><strong>Business Hours:</strong> 9 AM - 10 PM</p>
+      </div>
+
+      <form class="contact-form">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="contact">Contact Number</label>
+        <input type="text" id="contact" name="contact" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
   </main>
 
-  <!-- Floating WhatsApp button -->
-  <a href="https://wa.me/923080432842" class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
+  <footer>
+    <p>&copy; 2025 It's All About Coffee. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/923080432842" target="_blank" 
+     style="position: fixed; bottom: 20px; right: 20px; 
+            background: #25D366; color: white; 
+            border-radius: 50%; width: 60px; height: 60px; 
+            display: flex; align-items: center; justify-content: center; 
+            font-size: 30px; text-decoration: none; 
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.3); z-index: 999;">
+     <i class="fab fa-whatsapp"></i>
   </a>
 </body>
 </html>
