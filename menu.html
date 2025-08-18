@@ -62,14 +62,26 @@
   }
 
   .menu-card h3 {
-    margin: 15px 0 10px 0;
+    margin: 10px 0 5px 0;
     font-size: 20px;
     color: gold;
   }
   .menu-card p {
     font-size: 14px;
     color: #ffd700aa;
-    margin: 0 10px 10px 10px;
+    margin: 0 10px 5px 10px;
+  }
+
+  .menu-card .icons {
+    margin: 5px 0;
+  }
+  .menu-card .icons span {
+    margin: 0 3px;
+    display:inline-block;
+    transition: transform 0.3s;
+  }
+  .menu-card .icons span:hover {
+    transform: scale(1.3);
   }
 
   .menu-card button {
@@ -103,11 +115,12 @@
 <h1>Our Menu</h1>
 
 <section class="menu-section">
-  <!-- Pizza -->
+  <!-- Pizzas -->
   <div class="menu-card" onclick="goToContact('Cheese Pizza')">
     <img src="https://via.placeholder.com/300x150" alt="Cheese Pizza">
     <h3>Cheese Pizza</h3>
     <p>Delicious cheese-loaded pizza with fresh toppings.</p>
+    <div class="icons"><span>⭐</span></div>
     <button onclick="goToContact('Cheese Pizza')">Order Now</button>
   </div>
 
@@ -115,6 +128,7 @@
     <img src="https://via.placeholder.com/300x150" alt="Veggie Pizza">
     <h3>Veggie Pizza</h3>
     <p>Fresh veggies, mozzarella, and our special sauce.</p>
+    <div class="icons"><span>🥬</span></div>
     <button onclick="goToContact('Veggie Pizza')">Order Now</button>
   </div>
 
@@ -122,7 +136,16 @@
     <img src="https://via.placeholder.com/300x150" alt="Pepperoni Pizza">
     <h3>Pepperoni Pizza</h3>
     <p>Classic pepperoni with cheesy goodness and fresh crust.</p>
+    <div class="icons"><span>🌶️</span></div>
     <button onclick="goToContact('Pepperoni Pizza')">Order Now</button>
+  </div>
+
+  <div class="menu-card" onclick="goToContact('BBQ Chicken Pizza')">
+    <img src="https://via.placeholder.com/300x150" alt="BBQ Chicken Pizza">
+    <h3>BBQ Chicken Pizza</h3>
+    <p>Smoky BBQ chicken with cheese and fresh herbs.</p>
+    <div class="icons"><span>⭐</span> <span>🌶️</span></div>
+    <button onclick="goToContact('BBQ Chicken Pizza')">Order Now</button>
   </div>
 
   <!-- Burgers -->
@@ -130,6 +153,7 @@
     <img src="https://via.placeholder.com/300x150" alt="Beef Burger">
     <h3>Beef Burger</h3>
     <p>Juicy beef patty with fresh lettuce, tomato, and cheese.</p>
+    <div class="icons"><span>⭐</span></div>
     <button onclick="goToContact('Beef Burger')">Order Now</button>
   </div>
 
@@ -137,7 +161,16 @@
     <img src="https://via.placeholder.com/300x150" alt="Chicken Burger">
     <h3>Chicken Burger</h3>
     <p>Grilled chicken with secret sauce, lettuce, and tomato.</p>
+    <div class="icons"><span>🌶️</span></div>
     <button onclick="goToContact('Chicken Burger')">Order Now</button>
+  </div>
+
+  <div class="menu-card" onclick="goToContact('Veggie Burger')">
+    <img src="https://via.placeholder.com/300x150" alt="Veggie Burger">
+    <h3>Veggie Burger</h3>
+    <p>Fresh vegetable patty with cheese and lettuce.</p>
+    <div class="icons"><span>🥬</span></div>
+    <button onclick="goToContact('Veggie Burger')">Order Now</button>
   </div>
 
   <!-- Fast Food -->
@@ -145,6 +178,7 @@
     <img src="https://via.placeholder.com/300x150" alt="Fries">
     <h3>Fries</h3>
     <p>Crispy golden fries, perfect as a side or snack.</p>
+    <div class="icons"></div>
     <button onclick="goToContact('Fries')">Order Now</button>
   </div>
 
@@ -152,6 +186,7 @@
     <img src="https://via.placeholder.com/300x150" alt="Hot Dog">
     <h3>Hot Dog</h3>
     <p>Soft bun with juicy sausage, mustard, and ketchup.</p>
+    <div class="icons"><span>🌶️</span></div>
     <button onclick="goToContact('Hot Dog')">Order Now</button>
   </div>
 
@@ -159,8 +194,18 @@
     <img src="https://via.placeholder.com/300x150" alt="Nuggets">
     <h3>Nuggets</h3>
     <p>Golden fried chicken nuggets served with dip.</p>
+    <div class="icons"><span>⭐</span></div>
     <button onclick="goToContact('Nuggets')">Order Now</button>
   </div>
+
+  <div class="menu-card" onclick="goToContact('Cheese Sticks')">
+    <img src="https://via.placeholder.com/300x150" alt="Cheese Sticks">
+    <h3>Cheese Sticks</h3>
+    <p>Melty cheese sticks with crispy coating.</p>
+    <div class="icons"><span>⭐</span></div>
+    <button onclick="goToContact('Cheese Sticks')">Order Now</button>
+  </div>
+
 </section>
 
 <script>
