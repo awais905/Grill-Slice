@@ -49,13 +49,27 @@ h1 { text-align:center; margin-top:30px; color:gold; }
   color: #b30000;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
 }
 .contact-form button:hover {
   background-color: #ffcc00;
+  transform: scale(1.05);
 }
 
 label { color: gold; font-weight: bold; }
+
+/* Location Button Animation */
+#locationBtn {
+  background-color: #b30000;
+  color: gold;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+#locationBtn:hover {
+  background-color: gold;
+  color: #b30000;
+  transform: scale(1.05);
+}
 
 /* Popup Styles */
 #confirmPopup {
@@ -86,6 +100,31 @@ label { color: gold; font-weight: bold; }
 }
 #confirmPopup .confirm { background: gold; color:#b30000; }
 #confirmPopup .cancel { background: #b30000; color: gold; }
+
+/* Toast Notification */
+#toast {
+  visibility: hidden;
+  min-width: 250px;
+  background-color: gold;
+  color: #b30000;
+  text-align: center;
+  border-radius: 8px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1001;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+#toast.show {
+  visibility: visible;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+@keyframes fadein { from {bottom:0; opacity:0;} to {bottom:30px; opacity:1;} }
+@keyframes fadeout { from {bottom:30px; opacity:1;} to {bottom:0; opacity:0;} }
+
 </style>
 </head>
 <body>
@@ -112,7 +151,7 @@ label { color: gold; font-weight: bold; }
   <label for="address">Delivery Address:</label>
   <textarea id="address" placeholder="Enter your address" required></textarea>
 
-  <button onclick="sendWhatsAppLocation()">Send Location via WhatsApp</button>
+  <button type="button" id="locationBtn" onclick="sendWhatsAppLocation()">Send Location via WhatsApp</button>
 
   <label for="item">Selected Item:</label>
   <input type="text" id="item" readonly value="">
@@ -136,6 +175,9 @@ label { color: gold; font-weight: bold; }
   </div>
 </div>
 
+<!-- Toast Notification -->
+<div id="toast">Order Sent Successfully!</div>
+
 <script>
 // Auto-fill selected item from menu
 const urlParams = new URLSearchParams(window.location.search);
@@ -154,6 +196,7 @@ function cancelOrder(){
 function confirmOrder(){
   document.getElementById('confirmPopup').style.display='none';
   sendWhatsAppOrder();
+  showToast();
 }
 
 // WhatsApp Order
@@ -176,8 +219,15 @@ function sendWhatsAppOrder() {
 
 // WhatsApp Location
 function sendWhatsAppLocation(){
-  const whatsappURL = `https://wa.me/03080432842?text=${encodeURIComponent('Hello, I want to share my location for delivery.')}`;
+  const whatsappURL = `https://wa.me/03080432842?text=${encodeURIComponent('Please share your location for delivery.')}`;
   window.open(whatsappURL, '_blank');
+}
+
+// Toast notification
+function showToast(){
+  const toast = document.getElementById('toast');
+  toast.className = "show";
+  setTimeout(()=>{ toast.className = toast.className.replace("show",""); }, 3000);
 }
 </script>
 
