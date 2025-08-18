@@ -109,9 +109,10 @@
 
   .review-slider {
     display: flex;
-    overflow-x: auto;
     gap: 20px;
+    overflow-x: hidden;
     padding: 20px 0;
+    animation: scrollReviews 20s linear infinite;
   }
 
   .review-card {
@@ -121,6 +122,11 @@
     padding: 20px;
     flex-shrink: 0;
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+  }
+
+  .review-card:hover {
+    transform: scale(1.05);
   }
 
   .review-card p {
@@ -132,13 +138,69 @@
     color: gold;
   }
 
-  /* Hide scrollbar */
-  .review-slider::-webkit-scrollbar {
-    display: none;
+  @keyframes scrollReviews {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
-  .review-slider {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+
+  .review-slider-wrapper {
+    display: flex;
+    width: 200%;
+  }
+
+  .review-slider-wrapper .review-slider {
+    width: 50%;
+  }
+
+  /* REVIEW FORM BUTTON */
+  #reviewToggle {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: gold;
+    color: #b30000;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  #reviewToggle.active {
+    transform: rotate(10deg);
+  }
+
+  /* REVIEW FORM */
+  #reviewForm {
+    max-height: 0;
+    overflow: hidden;
+    margin-top: 20px;
+    transition: max-height 0.7s ease;
+  }
+
+  #reviewForm.show {
+    max-height: 500px; /* adjust as needed */
+  }
+
+  #reviewForm input, #reviewForm select, #reviewForm textarea {
+    padding:10px;
+    width:80%;
+    margin:5px 0;
+    border-radius:5px;
+    border:none;
+  }
+
+  #reviewForm button {
+    padding:10px 20px;
+    background-color: gold;
+    color:#b30000;
+    font-weight:bold;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+  }
+
+  #reviewForm button:hover {
+    background-color:#ffcc00;
   }
 
   /* FOOTER */
@@ -147,6 +209,15 @@
     padding: 15px;
     background-color: #b30000;
     color: gold;
+  }
+
+  /* Hide scrollbar */
+  .review-slider::-webkit-scrollbar {
+    display: none;
+  }
+  .review-slider {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 
 </style>
@@ -186,29 +257,84 @@
 <!-- CUSTOMER REVIEWS SECTION -->
 <section class="reviews">
   <h2>What Our Customers Say</h2>
-  <div class="review-slider">
-    <div class="review-card">
-      <p>⭐⭐⭐⭐⭐</p>
-      <p>"Amazing pizza! Loved the flavors and quick delivery."</p>
-      <h4>- Ali R.</h4>
-    </div>
-    <div class="review-card">
-      <p>⭐⭐⭐⭐⭐</p>
-      <p>"Best burger in Muzaffargarh! Will order again."</p>
-      <h4>- Sara K.</h4>
-    </div>
-    <div class="review-card">
-      <p>⭐⭐⭐⭐⭐</p>
-      <p>"Fast food done right! Crispy, hot, and tasty."</p>
-      <h4>- Hamza T.</h4>
-    </div>
-    <div class="review-card">
-      <p>⭐⭐⭐⭐⭐</p>
-      <p>"Excellent service and fresh food. Highly recommended!"</p>
-      <h4>- Fatima L.</h4>
+  <div class="review-slider-wrapper">
+    <div class="review-slider">
+      <div class="review-card">
+        <p>⭐⭐⭐⭐⭐</p>
+        <p>"Amazing pizza! Loved the flavors and quick delivery."</p>
+        <h4>- Ali R.</h4>
+      </div>
+      <div class="review-card">
+        <p>⭐⭐⭐⭐⭐</p>
+        <p>"Best burger in Muzaffargarh! Will order again."</p>
+        <h4>- Sara K.</h4>
+      </div>
+      <div class="review-card">
+        <p>⭐⭐⭐⭐⭐</p>
+        <p>"Fast food done right! Crispy, hot, and tasty."</p>
+        <h4>- Hamza T.</h4>
+      </div>
+      <div class="review-card">
+        <p>⭐⭐⭐⭐⭐</p>
+        <p>"Excellent service and fresh food. Highly recommended!"</p>
+        <h4>- Fatima L.</h4>
+      </div>
+      <!-- Duplicate cards for infinite scroll -->
+      <div class="review-card">
+        <p>⭐⭐⭐⭐⭐</p>
+        <p>"Amazing pizza! Loved the flavors and quick delivery."</p>
+        <h4>- Ali R.</h4>
+      </div>
+      <div class="review-card">
+        <p>⭐⭐⭐⭐⭐</p>
+        <p>"Best burger in Muzaffargarh! Will order again."</p>
+        <h4>- Sara K.</h4>
+      </div>
+      <div class="review-card">
+        <p>⭐⭐⭐⭐⭐</p>
+        <p>"Fast food done right! Crispy, hot, and tasty."</p>
+        <h4>- Hamza T.</h4>
+      </div>
+      <div class="review-card">
+        <p>⭐⭐⭐⭐⭐</p>
+        <p>"Excellent service and fresh food. Highly recommended!"</p>
+        <h4>- Fatima L.</h4>
+      </div>
     </div>
   </div>
+
+  <!-- CLICKABLE REVIEW FORM BUTTON -->
+  <button id="reviewToggle">Give Your Review</button>
+
+  <!-- COLLAPSIBLE REVIEW FORM -->
+  <div id="reviewForm">
+    <form action="https://wa.me/03080432842" method="get" target="_blank">
+      <input type="text" name="text" placeholder="Your Name" required>
+      <select name="text" required>
+        <option value="">Rate Us</option>
+        <option value="⭐">1 Star</option>
+        <option value="⭐⭐">2 Stars</option>
+        <option value="⭐⭐⭐">3 Stars</option>
+        <option value="⭐⭐⭐⭐">4 Stars</option>
+        <option value="⭐⭐⭐⭐⭐">5 Stars</option>
+      </select>
+      <textarea name="text" placeholder="Write your review..." required></textarea>
+      <br>
+      <button type="submit">Submit Review</button>
+    </form>
+  </div>
 </section>
+
+<script>
+  const toggleButton = document.getElementById('reviewToggle');
+  const reviewForm = document.getElementById('reviewForm');
+
+  toggleButton.addEventListener('click', () => {
+    reviewForm.classList.toggle('show');
+    toggleButton.classList.toggle('active');
+    toggleButton.textContent = reviewForm.classList.contains('show') ? 'Close Review Form' : 'Give Your Review';
+  });
+</script>
 
 <!-- FOOTER -->
 <footer>
