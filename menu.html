@@ -1,123 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu - Grill & Slice</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body { background-color: #1b0000; color: #fff; font-family: 'Poppins', sans-serif; }
-    .navbar { display:flex; justify-content:space-between; align-items:center; padding:20px 50px; background-color:#330000; }
-    .navbar .logo { font-size:28px; font-weight:700; color:#ff4d4d; }
-    .navbar .nav-links { list-style:none; display:flex; align-items:center; }
-    .navbar .nav-links li { margin-left:25px; }
-    .navbar .nav-links a { text-decoration:none; color:#fff; font-weight:500; transition:0.3s; }
-    .navbar .nav-links a:hover { color:#ff4d4d; }
-    .menu { padding:60px 50px; text-align:center; }
-    .menu h2 { font-size:36px; color:#ff4d4d; margin-bottom:40px; }
-    .menu .items { display:flex; flex-wrap:wrap; gap:25px; justify-content:center; }
-    .menu .item { background-color:#330000; padding:20px; border-radius:10px; width:250px; cursor:pointer; text-align:center; transition:0.3s; }
-    .menu .item img { width:100%; border-radius:10px; margin-bottom:15px; }
-    .menu .item h3 { color:#ff4d4d; margin-bottom:10px; }
-    .menu .item p { font-size:16px; color:#fff; margin-bottom:15px; }
-    .menu .item:hover { transform:scale(1.05); background-color:#4d0000; }
-    .order-btn { display:inline-block; padding:12px 30px; background:gold; color:#000; font-weight:700; border-radius:5px; text-decoration:none; transition:0.3s; }
-    .order-btn:hover { background:#ffcc00; }
-    footer { padding:20px; text-align:center; background-color:#330000; color:#ff4d4d; margin-top:50px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu - Grill & Slice</title>
+<style>
+  body {
+    margin:0; padding:0;
+    font-family: Arial, sans-serif;
+    background-color: #1a0000;
+    color: gold;
+  }
+  nav.navbar {
+    display: flex; justify-content: space-between; background-color: #b30000; padding: 15px 20px; align-items: center;
+  }
+  nav .logo { font-size: 24px; font-weight: bold; color: gold; }
+  nav ul.nav-links { list-style: none; display: flex; gap: 15px; }
+  nav ul.nav-links li a { color: gold; text-decoration: none; font-weight: bold; transition: 0.3s; }
+  nav ul.nav-links li a:hover { color: #fff; }
+
+  /* MENU GRID */
+  .menu-section {
+    padding: 40px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  .menu-card {
+    background: linear-gradient(#330000, #4d0000);
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    position: relative;
+  }
+  .menu-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px gold;
+  }
+
+  .menu-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+  .menu-card:hover img {
+    transform: scale(1.1);
+  }
+
+  .menu-card h3 {
+    margin: 15px 0 10px 0;
+    font-size: 20px;
+    color: gold;
+  }
+  .menu-card p {
+    font-size: 14px;
+    color: #ffd700aa;
+    margin: 0 10px 10px 10px;
+  }
+
+  .menu-card button {
+    background-color: gold;
+    color: #b30000;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .menu-card button:hover {
+    background-color: #ffcc00;
+  }
+
+</style>
 </head>
 <body>
 
-  <nav class="navbar">
-    <div class="logo">Grill & Slice</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="menu.html">Menu</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+<nav class="navbar">
+  <div class="logo">Grill & Slice</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
 
-  <section class="menu">
-    <h2>Our Menu</h2>
-    <div class="items">
-      <!-- Pizzas -->
-      <div class="item" onclick="location.href='contact.html?item=Cheese Pizza'">
-        <img src="images/cheese-pizza.jpg" alt="Cheese Pizza">
-        <h3>Cheese Pizza</h3>
-        <p>Mozzarella and toppings</p>
-        <a class="order-btn" href="contact.html?item=Cheese Pizza">Order Now</a>
-      </div>
-      <div class="item" onclick="location.href='contact.html?item=Pepperoni Pizza'">
-        <img src="images/pepperoni-pizza.jpg" alt="Pepperoni Pizza">
-        <h3>Pepperoni Pizza</h3>
-        <p>Spicy pepperoni & cheese</p>
-        <a class="order-btn" href="contact.html?item=Pepperoni Pizza">Order Now</a>
-      </div>
-      <div class="item" onclick="location.href='contact.html?item=BBQ Pizza'">
-        <img src="images/bbq-pizza.jpg" alt="BBQ Pizza">
-        <h3>BBQ Pizza</h3>
-        <p>Smoky BBQ sauce & chicken</p>
-        <a class="order-btn" href="contact.html?item=BBQ Pizza">Order Now</a>
-      </div>
-      <div class="item" onclick="location.href='contact.html?item=Veggie Pizza'">
-        <img src="images/veggie-pizza.jpg" alt="Veggie Pizza">
-        <h3>Veggie Pizza</h3>
-        <p>Fresh veggies & cheese</p>
-        <a class="order-btn" href="contact.html?item=Veggie Pizza">Order Now</a>
-      </div>
-      <div class="item" onclick="location.href='contact.html?item=Chicken Pizza'">
-        <img src="images/chicken-pizza.jpg" alt="Chicken Pizza">
-        <h3>Chicken Pizza</h3>
-        <p>Grilled chicken & cheese</p>
-        <a class="order-btn" href="contact.html?item=Chicken Pizza">Order Now</a>
-      </div>
+<h1 style="text-align:center; margin-top:30px; color:gold;">Our Menu</h1>
 
-      <!-- Burgers -->
-      <div class="item" onclick="location.href='contact.html?item=Classic Burger'">
-        <img src="images/burger.jpg" alt="Classic Burger">
-        <h3>Classic Burger</h3>
-        <p>Beef patty with veggies & cheese</p>
-        <a class="order-btn" href="contact.html?item=Classic Burger">Order Now</a>
-      </div>
-      <div class="item" onclick="location.href='contact.html?item=Chicken Burger'">
-        <img src="images/chicken-burger.jpg" alt="Chicken Burger">
-        <h3>Chicken Burger</h3>
-        <p>Grilled chicken & mayo</p>
-        <a class="order-btn" href="contact.html?item=Chicken Burger">Order Now</a>
-      </div>
-      <div class="item" onclick="location.href='contact.html?item=Veggie Burger'">
-        <img src="images/veggie-burger.jpg" alt="Veggie Burger">
-        <h3>Veggie Burger</h3>
-        <p>Fresh vegetables & cheese</p>
-        <a class="order-btn" href="contact.html?item=Veggie Burger">Order Now</a>
-      </div>
+<section class="menu-section">
+  <!-- Example Pizza -->
+  <div class="menu-card" onclick="goToContact('Cheese Pizza')">
+    <img src="https://via.placeholder.com/300x150" alt="Cheese Pizza">
+    <h3>Cheese Pizza</h3>
+    <p>Delicious cheese-loaded pizza with fresh toppings.</p>
+    <button onclick="goToContact('Cheese Pizza')">Order Now</button>
+  </div>
 
-      <!-- Fast Food -->
-      <div class="item" onclick="location.href='contact.html?item=Crispy Fries'">
-        <img src="images/fries.jpg" alt="Crispy Fries">
-        <h3>Crispy Fries</h3>
-        <p>Golden and crispy</p>
-        <a class="order-btn" href="contact.html?item=Crispy Fries">Order Now</a>
-      </div>
-      <div class="item" onclick="location.href='contact.html?item=Onion Rings'">
-        <img src="images/onion-rings.jpg" alt="Onion Rings">
-        <h3>Onion Rings</h3>
-        <p>Crispy golden onion rings</p>
-        <a class="order-btn" href="contact.html?item=Onion Rings">Order Now</a>
-      </div>
-      <div class="item" onclick="location.href='contact.html?item=Chicken Nuggets'">
-        <img src="images/nuggets.jpg" alt="Chicken Nuggets">
-        <h3>Chicken Nuggets</h3>
-        <p>Juicy and crispy</p>
-        <a class="order-btn" href="contact.html?item=Chicken Nuggets">Order Now</a>
-      </div>
-    </div>
-  </section>
+  <div class="menu-card" onclick="goToContact('Veggie Pizza')">
+    <img src="https://via.placeholder.com/300x150" alt="Veggie Pizza">
+    <h3>Veggie Pizza</h3>
+    <p>Fresh veggies, mozzarella, and our special sauce.</p>
+    <button onclick="goToContact('Veggie Pizza')">Order Now</button>
+  </div>
 
-  <footer>
-    <p>&copy; 2025 Grill & Slice | All Rights Reserved</p>
-  </footer>
+  <div class="menu-card" onclick="goToContact('Pepperoni Pizza')">
+    <img src="https://via.placeholder.com/300x150" alt="Pepperoni Pizza">
+    <h3>Pepperoni Pizza</h3>
+    <p>Classic pepperoni with cheesy goodness and fresh crust.</p>
+    <button onclick="goToContact('Pepperoni Pizza')">Order Now</button>
+  </div>
+
+  <!-- Burgers -->
+  <div class="menu-card" onclick="goToContact('Beef Burger')">
+    <img src="https://via.placeholder.com/300x150" alt="Beef Burger">
+    <h3>Beef Burger</h3>
+    <p>Juicy beef patty with fresh lettuce, tomato, and cheese.</p>
+    <button onclick="goToContact('Beef Burger')">Order Now</button>
+  </div>
+
+  <div class="menu-card" onclick="goToContact('Chicken Burger')">
+    <img src="https://via.placeholder.com/300x150" alt="Chicken Burger">
+    <h3>Chicken Burger</h3>
+    <p>Grilled chicken with secret sauce, lettuce, and tomato.</p>
+    <button onclick="goToContact('Chicken Burger')">Order Now</button>
+  </div>
+
+  <!-- Fast Food -->
+  <div class="menu-card" onclick="goToContact('Fries')">
+    <img src="https://via.placeholder.com/300x150" alt="Fries">
+    <h3>Fries</h3>
+    <p>Crispy golden fries, perfect as a side or snack.</p>
+    <button onclick="goToContact('Fries')">Order Now</button>
+  </div>
+
+  <div class="menu-card" onclick="goToContact('Hot Dog')">
+    <img src="https://via.placeholder.com/300x150" alt="Hot Dog">
+    <h3>Hot Dog</h3>
+    <p>Soft bun with juicy sausage, mustard, and ketchup.</p>
+    <button onclick="goToContact('Hot Dog')">Order Now</button>
+  </div>
+
+  <div class="menu-card" onclick="goToContact('Nuggets')">
+    <img src="https://via.placeholder.com/300x150" alt="Nuggets">
+    <h3>Nuggets</h3>
+    <p>Golden fried chicken nuggets served with dip.</p>
+    <button onclick="goToContact('Nuggets')">Order Now</button>
+  </div>
+</section>
+
+<script>
+function goToContact(item){
+    const encodedItem = encodeURIComponent(item);
+    window.location.href = `contact.html?item=${encodedItem}`;
+}
+</script>
 
 </body>
 </html>
