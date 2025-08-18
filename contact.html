@@ -5,157 +5,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact - Grill & Slice</title>
 <style>
-  /* GENERAL STYLING */
   body {
     font-family: Arial, sans-serif;
-    background-color: #1a0000; /* dark red background */
+    background-color: #1a0000;
     color: gold;
-    margin: 0;
-    padding: 0;
+    margin:0; padding:0;
   }
-
   nav.navbar {
-    display: flex;
-    justify-content: space-between;
-    background-color: #b30000;
-    padding: 15px 20px;
-    align-items: center;
+    display: flex; justify-content: space-between; background-color: #b30000; padding: 15px 20px; align-items: center;
   }
+  nav .logo { font-size: 24px; font-weight: bold; color: gold; }
+  nav ul.nav-links { list-style: none; display: flex; gap: 15px; }
+  nav ul.nav-links li a { color: gold; text-decoration: none; font-weight: bold; transition: 0.3s; }
+  nav ul.nav-links li a:hover { color: #fff; }
 
-  nav .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: gold;
-  }
+  .contact-section { padding: 40px 20px; max-width: 800px; margin: auto; }
+  .contact-section h2 { color: gold; text-align:center; margin-bottom: 30px; }
+  
+  form { display: flex; flex-direction: column; gap: 15px; }
+  input, select, textarea, button { padding:10px; border-radius:5px; border:none; font-size:16px; }
+  input, select, textarea { width:100%; }
+  textarea { resize:none; }
+  
+  .payment-options { display:flex; gap:20px; margin-top:10px; justify-content:center; }
+  .payment-options button { cursor:pointer; font-weight:bold; background-color: gold; color:#b30000; transition: 0.3s; }
+  .payment-options button:hover { background-color:#ffcc00; }
 
-  nav ul.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-  }
+  .size-selection { display:flex; gap:15px; justify-content:center; margin-top:10px; }
+  .size-selection select { width:auto; padding:8px 12px; }
 
-  nav ul.nav-links li a {
-    color: gold;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-  }
+  button.submit-btn { background-color: #b30000; color: gold; font-weight:bold; cursor:pointer; transition: 0.3s; }
+  button.submit-btn:hover { background-color:#ff3333; }
 
-  nav ul.nav-links li a:hover {
-    color: #fff;
-  }
+  footer { text-align:center; padding:15px; background-color:#b30000; color:gold; }
 
-  section {
-    padding: 20px;
-    text-align: center;
-  }
-
-  h2 {
-    color: gold;
-    margin-bottom: 20px;
-  }
-
-  /* ORDER FORM */
-  form#orderForm {
-    max-width: 500px;
-    margin: 0 auto 30px auto;
-    display: flex;
-    flex-direction: column;
-  }
-
-  #orderForm input, #orderForm textarea, #orderForm select {
-    margin-bottom: 15px;
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #b30000;
-    background-color: #330000;
-    color: gold;
-  }
-
-  .order-btn {
-    padding: 12px;
-    background-color: #b30000;
-    color: gold;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-
-  .order-btn:hover {
-    background-color: gold;
-    color: #b30000;
-  }
-
-  /* PAYMENT BUTTONS */
-  .payment-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 10px;
-  }
-
-  .payment-btn {
-    padding: 12px 25px;
-    background-color: #b30000;
-    color: gold;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: 0.3s;
-  }
-
-  .payment-btn:hover {
-    background-color: gold;
-    color: #b30000;
-  }
-
-  /* CONTACT LINKS */
-  .contact-links {
-    text-align: center;
-    margin: 30px 0;
-  }
-
-  .contact-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-  }
-
-  .contact-btn {
-    display: inline-block;
-    padding: 12px 25px;
-    background-color: #b30000;
-    color: gold;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: 0.3s;
-  }
-
-  .contact-btn:hover {
-    background-color: gold;
-    color: #b30000;
-  }
-
-  footer {
-    text-align: center;
-    padding: 15px;
-    background-color: #b30000;
-    color: gold;
-    margin-top: 20px;
-  }
-
-  p.instruction-note {
-    color: gold;
-    text-align: center;
-    margin-top: 10px;
-    font-size: 14px;
-  }
-
+  /* LANGUAGE SWITCHER */
+  .language-switcher { padding: 8px 15px; background-color:#330000; color:gold; border-radius:5px; border:none; font-weight:bold; cursor:pointer; margin:20px auto; display:block; }
 </style>
 </head>
 <body>
@@ -171,84 +56,121 @@
 </nav>
 
 <section class="contact-section">
-  <h2>Place Your Order</h2>
+  <h2>Place Your Order / Contact Us</h2>
+
+  <!-- LANGUAGE SWITCHER -->
+  <select class="language-switcher" id="languageSwitcher">
+    <option value="en">English</option>
+    <option value="ur">اردو</option>
+    <option value="skr">سرائیکی</option>
+  </select>
+
   <form id="orderForm">
-    <label for="name">Name:</label>
-    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="text" id="customerName" placeholder="Your Name" required>
+    <input type="email" id="customerEmail" placeholder="Email" required>
+    <input type="text" id="customerPhone" placeholder="Contact Number" required>
 
-    <label for="contact">Contact Number:</label>
-    <input type="tel" id="contact" placeholder="0308XXXXXXX" required>
-
-    <label for="category">Category:</label>
-    <select id="category" required>
-      <option value="">--Select Category--</option>
-      <option value="Pizza">Pizza</option>
-      <option value="Burger">Burger</option>
-      <option value="Fast Food">Fast Food</option>
+    <select id="itemSelect" required>
+      <option value="">Select Item from Menu</option>
+      <option value="Cheese Pizza">Cheese Pizza</option>
+      <option value="Veggie Pizza">Veggie Pizza</option>
+      <option value="Pepperoni Pizza">Pepperoni Pizza</option>
+      <option value="Beef Burger">Beef Burger</option>
+      <option value="Chicken Burger">Chicken Burger</option>
+      <option value="Fries">Fries</option>
+      <option value="Hot Dog">Hot Dog</option>
+      <option value="Nuggets">Nuggets</option>
     </select>
 
-    <label for="item">Selected Item:</label>
-    <input type="text" id="item" placeholder="Enter item name" required>
+    <!-- SIZE SELECTION -->
+    <div class="size-selection">
+      <label>Size:</label>
+      <select id="itemSize" required>
+        <option value="Small">Small</option>
+        <option value="Medium">Medium</option>
+        <option value="Large">Large</option>
+      </select>
+    </div>
 
-    <label for="size">Select Size:</label>
-    <select id="size" required>
-      <option value="">--Choose Size--</option>
-      <option value="Small">Small</option>
-      <option value="Medium">Medium</option>
-      <option value="Large">Large</option>
-    </select>
+    <textarea id="customerMessage" placeholder="Additional Notes..." required></textarea>
 
-    <label for="message">Message / Instructions:</label>
-    <textarea id="message" rows="4" placeholder="Any special instructions?"></textarea>
+    <!-- ONLINE PAYMENT -->
+    <div class="payment-options">
+      <button type="button" onclick="paySadaPay()">SadaPay</button>
+      <button type="button" onclick="payNayaPay()">NayaPay</button>
+    </div>
 
-    <button type="submit" class="order-btn">Send Order via WhatsApp</button>
+    <button type="submit" class="submit-btn">Send Order via WhatsApp</button>
   </form>
-
-  <h2>Online Payment Options</h2>
-  <div class="payment-buttons">
-    <a href="https://www.sadapay.com/pay/03080432842" target="_blank" class="payment-btn">💳 Pay via SadaPay</a>
-    <a href="https://www.nayapay.com/pay/03080432842" target="_blank" class="payment-btn">💳 Pay via NayaPay</a>
-    <a href="https://www.paypal.com/paypalme/03080432842" target="_blank" class="payment-btn">💳 Pay via PayPal</a>
-  </div>
-  <p class="instruction-note">Tap your preferred payment option to pay instantly. Amount will be entered in the app.</p>
-</section>
-
-<section class="contact-links">
-  <h2>Contact Us Instantly</h2>
-  <div class="contact-buttons">
-    <a href="https://wa.me/923080432842" target="_blank" class="contact-btn">WhatsApp Us</a>
-    <a href="tel:+923080432842" class="contact-btn">Call Us: 03080432842</a>
-    <a href="mailto:awaisaziz8832@gmail.com" class="contact-btn">Email Us</a>
-  </div>
 </section>
 
 <footer>
-  <p>&copy; 2025 Grill & Slice | All Rights Reserved</p>
+  &copy; 2025 Grill & Slice. All Rights Reserved.
 </footer>
 
 <script>
-  // Auto-fill selected item from URL if coming from menu
-  const urlParams = new URLSearchParams(window.location.search);
-  const selectedItem = urlParams.get('item');
-  if (selectedItem) {
-    const itemInput = document.getElementById('item');
-    if(itemInput) itemInput.value = selectedItem;
+  // LANGUAGE SWITCHER
+  const languageSwitcher = document.getElementById('languageSwitcher');
+  languageSwitcher.addEventListener('change', function(){
+    const lang = this.value;
+    if(lang==='en'){
+      document.querySelector('.contact-section h2').textContent = "Place Your Order / Contact Us";
+      document.getElementById('customerName').placeholder = "Your Name";
+      document.getElementById('customerEmail').placeholder = "Email";
+      document.getElementById('customerPhone').placeholder = "Contact Number";
+      document.getElementById('customerMessage').placeholder = "Additional Notes...";
+    } else if(lang==='ur'){
+      document.querySelector('.contact-section h2').textContent = "اپنا آرڈر دیں / رابطہ کریں";
+      document.getElementById('customerName').placeholder = "آپ کا نام";
+      document.getElementById('customerEmail').placeholder = "ای میل";
+      document.getElementById('customerPhone').placeholder = "رابطہ نمبر";
+      document.getElementById('customerMessage').placeholder = "مزید ہدایات...";
+    } else if(lang==='skr'){
+      document.querySelector('.contact-section h2').textContent = "اپنا آرڈر دِسو / رابطہ کرو";
+      document.getElementById('customerName').placeholder = "تہاڈا ناں";
+      document.getElementById('customerEmail').placeholder = "ای میل";
+      document.getElementById('customerPhone').placeholder = "رابطہ نمبر";
+      document.getElementById('customerMessage').placeholder = "ہور ہدایات...";
+    }
+  });
+
+  // FORM SUBMIT TO WHATSAPP
+  document.getElementById('orderForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('customerName').value;
+    const email = document.getElementById('customerEmail').value;
+    const phone = document.getElementById('customerPhone').value;
+    const item = document.getElementById('itemSelect').value;
+    const size = document.getElementById('itemSize').value;
+    const message = document.getElementById('customerMessage').value;
+    const text = `Order from Website:\nName: ${name}\nEmail: ${email}\nContact: ${phone}\nItem: ${item}\nSize: ${size}\nNotes: ${message}`;
+    const whatsapp = "03080432842";
+    const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+  });
+
+  // ONLINE PAYMENT BUTTONS
+  function paySadaPay(){
+    const amount = prompt("Enter Amount to Pay via SadaPay (PKR):");
+    if(amount) {
+      window.open(`https://sadapay.com/pay/03080432842?amount=${amount}`, '_blank');
+    }
   }
 
-  // Send order via WhatsApp
-  const orderForm = document.getElementById('orderForm');
-  orderForm.addEventListener('submit', function(e){
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const contact = document.getElementById('contact').value;
-    const category = document.getElementById('category').value;
-    const item = document.getElementById('item').value;
-    const size = document.getElementById('size').value;
-    const message = document.getElementById('message').value;
+  function payNayaPay(){
+    const amount = prompt("Enter Amount to Pay via NayaPay (PKR):");
+    if(amount) {
+      window.open(`https://nayapay.com/pay/03080432842?amount=${amount}`, '_blank');
+    }
+  }
 
-    const text = `Order from Grill & Slice:\nName: ${name}\nContact: ${contact}\nCategory: ${category}\nItem: ${item}\nSize: ${size}\nInstructions: ${message}`;
-    const waURL = `https://wa.me/923080432842?text=${encodeURIComponent(text)}`;
-    window.open(waURL, '_blank');
+  // PRESELECT ITEM WHEN CLICKED FROM MENU
+  const menuCards = document.querySelectorAll('.menu-card');
+  menuCards.forEach(card => {
+    card.addEventListener('click', () => {
+      document.getElementById('itemSelect').value = card.textContent;
+      window.scrollTo({top: document.getElementById('orderForm').offsetTop - 50, behavior: 'smooth'});
+    });
   });
 </script>
 
