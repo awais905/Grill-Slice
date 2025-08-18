@@ -184,22 +184,19 @@ const urlParams = new URLSearchParams(window.location.search);
 const selectedItem = urlParams.get('item');
 if(selectedItem){
   document.getElementById('item').value = selectedItem;
+  trackMenuClick(selectedItem); // Track the selected menu item
 }
 
 // Confirm popup
-function showConfirmPopup(){
-  document.getElementById('confirmPopup').style.display='flex';
-}
-function cancelOrder(){
-  document.getElementById('confirmPopup').style.display='none';
-}
+function showConfirmPopup(){ document.getElementById('confirmPopup').style.display='flex'; }
+function cancelOrder(){ document.getElementById('confirmPopup').style.display='none'; }
 function confirmOrder(){
   document.getElementById('confirmPopup').style.display='none';
   sendWhatsAppOrder();
   showToast();
 }
 
-// WhatsApp Order
+// WhatsApp Order + Tracking
 function sendWhatsAppOrder() {
   const name = document.getElementById('name').value;
   const phone = document.getElementById('phone').value;
@@ -212,6 +209,13 @@ function sendWhatsAppOrder() {
     return;
   }
 
+  // Log order in localStorage
+  let orders = JSON.parse(localStorage.getItem('orders')) || [];
+  orders.push({name, phone, address, item, size, date: new Date().toISOString()});
+  localStorage.setItem('orders', JSON.stringify(orders));
+  console.log('Order Placed:', orders);
+
+  // Open WhatsApp
   const message = `Hello, I want to place an order:\nName: ${name}\nPhone: ${phone}\nAddress: ${address}\nItem: ${item}\nSize: ${size}`;
   const whatsappURL = `https://wa.me/03080432842?text=${encodeURIComponent(message)}`;
   window.open(whatsappURL, '_blank');
@@ -229,6 +233,25 @@ function showToast(){
   toast.className = "show";
   setTimeout(()=>{ toast.className = toast.className.replace("show",""); }, 3000);
 }
+
+// Track menu click
+function trackMenuClick(itemName){
+  let clickedItems = JSON.parse(localStorage.getItem('clickedItems')) || [];
+  clickedItems.push({item: itemName, date: new Date().toISOString()});
+  localStorage.setItem('clickedItems', JSON.stringify(clickedItems));
+  console.log('Menu Item Clicked:', itemName);
+}
+
+// Track special offer click (example)
+document.querySelectorAll('.special-offer').forEach(promo => {
+  promo.addEventListener('click', () => {
+    const promoName = promo.getAttribute('data-promo');
+    let promoClicks = JSON.parse(localStorage.getItem('promoClicks')) || [];
+    promoClicks.push({promo: promoName, date: new Date().toISOString()});
+    localStorage.setItem('promoClicks', JSON.stringify(promoClicks));
+    console.log('Promotion Clicked:', promoName);
+  });
+});
 </script>
 
 </body>
