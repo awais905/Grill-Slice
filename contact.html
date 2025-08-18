@@ -63,7 +63,7 @@
     flex-direction: column;
   }
 
-  #orderForm input, #orderForm textarea {
+  #orderForm input, #orderForm textarea, #orderForm select {
     margin-bottom: 15px;
     padding: 10px;
     border-radius: 6px;
@@ -179,8 +179,24 @@
     <label for="contact">Contact Number:</label>
     <input type="tel" id="contact" placeholder="0308XXXXXXX" required>
 
+    <label for="category">Category:</label>
+    <select id="category" required>
+      <option value="">--Select Category--</option>
+      <option value="Pizza">Pizza</option>
+      <option value="Burger">Burger</option>
+      <option value="Fast Food">Fast Food</option>
+    </select>
+
     <label for="item">Selected Item:</label>
-    <input type="text" id="item" readonly>
+    <input type="text" id="item" placeholder="Enter item name" required>
+
+    <label for="size">Select Size:</label>
+    <select id="size" required>
+      <option value="">--Choose Size--</option>
+      <option value="Small">Small</option>
+      <option value="Medium">Medium</option>
+      <option value="Large">Large</option>
+    </select>
 
     <label for="message">Message / Instructions:</label>
     <textarea id="message" rows="4" placeholder="Any special instructions?"></textarea>
@@ -211,7 +227,7 @@
 </footer>
 
 <script>
-  // Auto-fill selected item from URL
+  // Auto-fill selected item from URL if coming from menu
   const urlParams = new URLSearchParams(window.location.search);
   const selectedItem = urlParams.get('item');
   if (selectedItem) {
@@ -225,10 +241,12 @@
     e.preventDefault();
     const name = document.getElementById('name').value;
     const contact = document.getElementById('contact').value;
+    const category = document.getElementById('category').value;
     const item = document.getElementById('item').value;
+    const size = document.getElementById('size').value;
     const message = document.getElementById('message').value;
 
-    const text = `Order from Grill & Slice:\nName: ${name}\nContact: ${contact}\nItem: ${item}\nInstructions: ${message}`;
+    const text = `Order from Grill & Slice:\nName: ${name}\nContact: ${contact}\nCategory: ${category}\nItem: ${item}\nSize: ${size}\nInstructions: ${message}`;
     const waURL = `https://wa.me/923080432842?text=${encodeURIComponent(text)}`;
     window.open(waURL, '_blank');
   });
