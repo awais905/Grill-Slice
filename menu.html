@@ -32,33 +32,9 @@ nav ul.nav-links li a:hover { color: #fff; }
 .menu-item img { width:100%; border-radius:10px; }
 .menu-item p { color: gold; font-weight:bold; margin-top:10px; }
 
-#recommendationSectionWrapper {
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 40px;
-}
 #recommendationSection {
-  display:flex;
-  gap:20px;
-  transition: transform 0.5s ease-in-out;
+  display:flex; justify-content:center; flex-wrap:wrap; gap:20px; margin-bottom:40px;
 }
-
-.carousel-arrow {
-  position: absolute;
-  top:50%;
-  transform: translateY(-50%);
-  background-color:#b30000;
-  color: gold;
-  border:none;
-  padding:10px;
-  cursor:pointer;
-  border-radius:50%;
-  font-size:18px;
-}
-.carousel-arrow:hover { background-color: gold; color:#b30000; }
-
-#prev { left:10px; }
-#next { right:10px; }
 
 .language-button {
   position: fixed; top:20px; right:20px; background-color: #b30000; color: gold; padding:10px 15px;
@@ -79,18 +55,17 @@ nav ul.nav-links li a:hover { color: #fff; }
   </ul>
 </nav>
 
+<div class="language-button">Language</div>
+
 <div class="section">
   <h2>Recommended for You</h2>
-  <div id="recommendationSectionWrapper">
-    <button id="prev" class="carousel-arrow">&#10094;</button>
-    <div id="recommendationSection"></div>
-    <button id="next" class="carousel-arrow">&#10095;</button>
-  </div>
+  <div id="recommendationSection"></div>
 </div>
 
 <div class="section">
   <h2>Our Menu</h2>
   <div class="menu-items">
+    <!-- Pizza Items -->
     <div class="menu-item" onclick="goToOrder('Margherita Pizza')">
       <img src="margherita.jpg">
       <p>Margherita Pizza</p>
@@ -99,6 +74,20 @@ nav ul.nav-links li a:hover { color: #fff; }
       <img src="bbqchicken.jpg">
       <p>BBQ Chicken Pizza</p>
     </div>
+    <div class="menu-item" onclick="goToOrder('Veggie Supreme Pizza')">
+      <img src="veggiesupreme.jpg">
+      <p>Veggie Supreme Pizza</p>
+    </div>
+    <div class="menu-item" onclick="goToOrder('Pepperoni Pizza')">
+      <img src="pepperoni.jpg">
+      <p>Pepperoni Pizza</p>
+    </div>
+    <div class="menu-item" onclick="goToOrder('Cheese Burst Pizza')">
+      <img src="cheeseburst.jpg">
+      <p>Cheese Burst Pizza</p>
+    </div>
+
+    <!-- Burger Items -->
     <div class="menu-item" onclick="goToOrder('Cheese Burger')">
       <img src="cheeseburger.jpg">
       <p>Cheese Burger</p>
@@ -107,22 +96,30 @@ nav ul.nav-links li a:hover { color: #fff; }
       <img src="vegburger.jpg">
       <p>Veg Burger</p>
     </div>
+    <div class="menu-item" onclick="goToOrder('Zinger Burger')">
+      <img src="zinger.jpg">
+      <p>Zinger Burger</p>
+    </div>
+
+    <!-- Fast Food Items -->
     <div class="menu-item" onclick="goToOrder('French Fries')">
       <img src="fries.jpg">
       <p>French Fries</p>
-    </div>
-    <div class="menu-item" onclick="goToOrder('Coke')">
-      <img src="coke.jpg">
-      <p>Coke</p>
     </div>
     <div class="menu-item" onclick="goToOrder('Garlic Bread')">
       <img src="garlicbread.jpg">
       <p>Garlic Bread</p>
     </div>
+    <div class="menu-item" onclick="goToOrder('Coke')">
+      <img src="coke.jpg">
+      <p>Coke</p>
+    </div>
+    <div class="menu-item" onclick="goToOrder('Pepsi')">
+      <img src="pepsi.jpg">
+      <p>Pepsi</p>
+    </div>
   </div>
 </div>
-
-<div class="language-button">Language</div>
 
 <script>
 // Navigate to contact page with pre-selected item
@@ -130,62 +127,21 @@ function goToOrder(item){
   window.location.href = `contact.html?item=${encodeURIComponent(item)}`;
 }
 
-// AI-based Recommendations
+// AI-based Recommendations (simple display)
 const menuItems = [
-  {name:'Margherita Pizza', img:'margherita.jpg'},
-  {name:'BBQ Chicken Pizza', img:'bbqchicken.jpg'},
-  {name:'Cheese Burger', img:'cheeseburger.jpg'},
-  {name:'Veg Burger', img:'vegburger.jpg'},
-  {name:'French Fries', img:'fries.jpg'},
-  {name:'Coke', img:'coke.jpg'},
-  {name:'Garlic Bread', img:'garlicbread.jpg'}
+  'Margherita Pizza', 'BBQ Chicken Pizza', 'Veggie Supreme Pizza', 'Pepperoni Pizza', 'Cheese Burst Pizza',
+  'Cheese Burger', 'Veg Burger', 'Zinger Burger',
+  'French Fries', 'Garlic Bread', 'Coke', 'Pepsi'
 ];
 
-const clickedItems = JSON.parse(localStorage.getItem('clickedItems')) || [];
 const recommendationSection = document.getElementById('recommendationSection');
-
-function getTopRecommendations(){
-  const countMap = {};
-  clickedItems.forEach(item => {
-    if(countMap[item.item]) countMap[item.item]++;
-    else countMap[item.item] = 1;
-  });
-  const sorted = Object.entries(countMap).sort((a,b)=>b[1]-a[1]);
-  return sorted.map(x=>x[0]);
-}
-
-const topItems = getTopRecommendations();
-
-let recommendations = [];
-if(topItems.length===0){
-  recommendations = menuItems.slice(0,5);
-}else{
-  topItems.forEach(itemName=>{
-    const menuItem = menuItems.find(m=>m.name===itemName);
-    if(menuItem) recommendations.push(menuItem);
-  });
-}
-
-// Populate carousel
-recommendations.forEach(menuItem=>{
+menuItems.slice(0,4).forEach(name=>{
   const div = document.createElement('div');
   div.className='menu-item';
-  div.onclick = ()=>goToOrder(menuItem.name);
-  div.innerHTML = `<img src="${menuItem.img}"><p>${menuItem.name}</p>`;
+  div.onclick = ()=>goToOrder(name);
+  div.innerHTML = `<p>${name}</p>`;
   recommendationSection.appendChild(div);
 });
-
-// Carousel sliding logic
-let scrollIndex = 0;
-const maxScroll = recommendations.length - 3; // show 3 items at a time
-document.getElementById('next').onclick = ()=>{
-  if(scrollIndex < maxScroll) scrollIndex++;
-  recommendationSection.style.transform = `translateX(${-scrollIndex*220}px)`;
-}
-document.getElementById('prev').onclick = ()=>{
-  if(scrollIndex > 0) scrollIndex--;
-  recommendationSection.style.transform = `translateX(${-scrollIndex*220}px)`;
-}
 </script>
 
 </body>
