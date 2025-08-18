@@ -70,9 +70,8 @@
   .review-slider {
     display: flex;
     gap: 20px;
-    overflow-x: hidden;
+    overflow-x: auto;
     padding: 20px 0;
-    animation: scrollReviews 20s linear infinite;
   }
 
   .review-card {
@@ -89,14 +88,6 @@
 
   .review-card p { margin: 10px 0; }
   .review-card h4 { margin-top: 10px; color: gold; }
-
-  @keyframes scrollReviews {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-
-  .review-slider-wrapper { display: flex; width: 200%; }
-  .review-slider-wrapper .review-slider { width: 50%; }
 
   /* REVIEW FORM BUTTON */
   #reviewToggle {
@@ -179,10 +170,12 @@
   <div class="menu-items">
     <div class="menu-card" onclick="selectItem('Cheese Pizza')">Cheese Pizza</div>
     <div class="menu-card" onclick="selectItem('Veggie Pizza')">Veggie Pizza</div>
+    <div class="menu-card" onclick="selectItem('Pepperoni Pizza')">Pepperoni Pizza</div>
     <div class="menu-card" onclick="selectItem('Beef Burger')">Beef Burger</div>
     <div class="menu-card" onclick="selectItem('Chicken Burger')">Chicken Burger</div>
     <div class="menu-card" onclick="selectItem('Fries')">Fries</div>
     <div class="menu-card" onclick="selectItem('Hot Dog')">Hot Dog</div>
+    <div class="menu-card" onclick="selectItem('Nuggets')">Nuggets</div>
   </div>
 </section>
 
@@ -199,8 +192,7 @@
     </select>
   </div>
 
-  <div class="review-slider-wrapper">
-    <div class="review-slider">
+  <div class="review-slider">
       <div class="review-card">
         <p>⭐⭐⭐⭐⭐</p>
         <p>"Amazing pizza! Loved the flavors and quick delivery."</p>
@@ -221,7 +213,6 @@
         <p>"Excellent service and fresh food. Highly recommended!"</p>
         <h4>- Fatima L.</h4>
       </div>
-    </div>
   </div>
 
   <!-- REVIEW FORM BUTTON -->
@@ -235,10 +226,12 @@
         <option value="">Select Item</option>
         <option value="Cheese Pizza">Cheese Pizza</option>
         <option value="Veggie Pizza">Veggie Pizza</option>
+        <option value="Pepperoni Pizza">Pepperoni Pizza</option>
         <option value="Beef Burger">Beef Burger</option>
         <option value="Chicken Burger">Chicken Burger</option>
         <option value="Fries">Fries</option>
         <option value="Hot Dog">Hot Dog</option>
+        <option value="Nuggets">Nuggets</option>
       </select>
       <select id="ratingSelect" required>
         <option value="">Rate Us</option>
@@ -255,6 +248,10 @@
   </div>
 </section>
 
+<footer>
+  &copy; 2025 Grill & Slice. All Rights Reserved.
+</footer>
+
 <script>
   const toggleButton = document.getElementById('reviewToggle');
   const reviewForm = document.getElementById('reviewForm');
@@ -262,7 +259,9 @@
   toggleButton.addEventListener('click', () => {
     reviewForm.classList.toggle('show');
     toggleButton.classList.toggle('active');
-    toggleButton.textContent = reviewForm.classList.contains('show') ? 'Close Review / Order Form' : 'Give Your Review / Order';
+    toggleButton.textContent = reviewForm.classList.contains('show') 
+      ? 'Close Review / Order Form' 
+      : 'Give Your Review / Order';
   });
 
   function selectItem(itemName){
@@ -282,4 +281,32 @@
     const rating = document.getElementById('ratingSelect').value;
     const message = document.getElementById('reviewMessage').value;
     const text = `Order/Review:\nName: ${name}\nItem: ${item}\nRating: ${rating}\nMessage: ${message}`;
-    const url
+    const phone = "03080432842";
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+  });
+
+  const languageSwitcher = document.getElementById('languageSwitcher');
+  languageSwitcher.addEventListener('change', function(){
+    const lang = this.value;
+    if(lang==='en'){
+      document.getElementById('heroTitle').textContent = "Welcome to Grill & Slice";
+      document.getElementById('heroText').textContent = "Delicious pizzas, burgers, and fast food right at your fingertips!";
+      document.getElementById('menuTitle').textContent = "Our Popular Items";
+      document.getElementById('reviewsTitle').textContent = "What Our Customers Say";
+    } else if(lang==='ur'){
+      document.getElementById('heroTitle').textContent = "گرل اینڈ سلائس میں خوش آمدید";
+      document.getElementById('heroText').textContent = "لذیذ پیزا، برگر اور فاسٹ فوڈ آپ کی پہنچ میں!";
+      document.getElementById('menuTitle').textContent = "ہمارے مشہور آئٹمز";
+      document.getElementById('reviewsTitle').textContent = "ہمارے صارفین کیا کہتے ہیں";
+    } else if(lang==='skr'){
+      document.getElementById('heroTitle').textContent = "گرل اینڈ سلائس وچ خوش آمدید";
+      document.getElementById('heroText').textContent = "مزیدار پیزا، برگر تے فاسٹ فوڈ تہاڈے کول!";
+      document.getElementById('menuTitle').textContent = "ساڈے مشہور آئٹمز";
+      document.getElementById('reviewsTitle').textContent = "ساڈے صارف کیہندے نیں";
+    }
+  });
+</script>
+
+</body>
+</html>
