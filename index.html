@@ -39,8 +39,13 @@
   nav ul.nav-links li a:hover { color: #fff; }
 
   .hero { text-align: center; padding: 60px 20px; }
-  .hero h1 { font-size: 48px; margin-bottom: 20px; }
-  .hero p { font-size: 20px; }
+  .hero h1 { font-size: 48px; margin-bottom: 20px; animation: fadeIn 1.2s ease forwards;}
+  .hero p { font-size: 20px; animation: fadeIn 1.5s ease forwards; }
+
+  @keyframes fadeIn {
+    from {opacity:0; transform: translateY(20px);}
+    to {opacity:1; transform: translateY(0);}
+  }
 
   .menu-highlights { padding: 40px 20px; text-align: center; }
   .menu-highlights h2 { margin-bottom: 30px; color: gold; }
@@ -58,12 +63,37 @@
     padding: 20px;
     min-width: 200px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: transform 0.4s ease, background-color 0.3s;
   }
 
-  .menu-card:hover { background-color: gold; color: #b30000; }
+  .menu-card:hover { transform: scale(1.1) rotate(-2deg); background-color: gold; color: #b30000; }
 
-  /* REVIEW SECTION */
+  /* SPECIAL OFFERS */
+  .special-offers {
+    background-color: #330000;
+    padding: 40px 20px;
+    text-align: center;
+    color: gold;
+  }
+  .special-offers h2 { margin-bottom: 30px; color: gold; }
+  .offer-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  .offer-card {
+    background-color: #b30000;
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 200px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.4s ease, background-color 0.3s;
+  }
+  .offer-card:hover { transform: scale(1.05); background-color: gold; color: #b30000; }
+
+  /* REVIEWS */
   .reviews { background-color: #1a0000; color: gold; padding: 40px 20px; text-align: center; }
   .reviews h2 { font-size: 28px; margin-bottom: 20px; color: gold; }
 
@@ -111,7 +141,6 @@
     margin-top: 20px;
     transition: max-height 0.7s ease;
   }
-
   #reviewForm.show { max-height: 600px; }
 
   #reviewForm input, #reviewForm select, #reviewForm textarea {
@@ -121,7 +150,6 @@
     border-radius:5px;
     border:none;
   }
-
   #reviewForm button {
     padding:10px 20px;
     background-color: gold;
@@ -131,7 +159,6 @@
     border-radius:5px;
     cursor:pointer;
   }
-
   #reviewForm button:hover { background-color:#ffcc00; }
 
   footer {
@@ -139,6 +166,30 @@
     padding: 15px;
     background-color: #b30000;
     color: gold;
+  }
+
+  /* POPUP PROMO */
+  .popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: gold;
+    color: #b30000;
+    padding: 15px 20px;
+    border-radius: 10px;
+    display: none;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    z-index: 9999;
+  }
+  .popup button {
+    margin-left: 15px;
+    background-color: #b30000;
+    color: gold;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
   }
 
   .review-slider::-webkit-scrollbar { display: none; }
@@ -176,6 +227,16 @@
     <div class="menu-card" onclick="selectItem('Fries')">Fries</div>
     <div class="menu-card" onclick="selectItem('Hot Dog')">Hot Dog</div>
     <div class="menu-card" onclick="selectItem('Nuggets')">Nuggets</div>
+  </div>
+</section>
+
+<!-- SPECIAL OFFERS -->
+<section class="special-offers">
+  <h2>Special Offers</h2>
+  <div class="offer-cards">
+    <div class="offer-card">Buy 1 Get 1 Cheese Pizza 🍕</div>
+    <div class="offer-card">Chicken Burger Combo - 500 PKR 🍔</div>
+    <div class="offer-card">Fries + Drink Combo - 250 PKR 🍟🥤</div>
   </div>
 </section>
 
@@ -248,6 +309,12 @@
   </div>
 </section>
 
+<!-- POPUP PROMO -->
+<div id="promoPopup" class="popup">
+  <p>🔥 Special Today: Buy 1 Get 1 Pizza! Order Now 🍕</p>
+  <button onclick="closePopup()">Close</button>
+</div>
+
 <footer>
   &copy; 2025 Grill & Slice. All Rights Reserved.
 </footer>
@@ -306,6 +373,17 @@
       document.getElementById('reviewsTitle').textContent = "ساڈے صارف کیہندے نیں";
     }
   });
+
+  // POPUP PROMO
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('promoPopup').style.display = 'block';
+    }, 5000);
+  });
+
+  function closePopup() {
+    document.getElementById('promoPopup').style.display = 'none';
+  }
 </script>
 
 </body>
