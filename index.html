@@ -312,7 +312,7 @@
 
 <!-- POPUP PROMO -->
 <div id="promoPopup" class="popup" onclick="popupOrder()">
-  🔥 Buy 1 Burger, Get 1 Drink Free! Order Now 🍔🥤
+  🔥 Buy 1 Pizza, Get 1 Drink Free! Order Now 🍕🥤
 </div>
 
 <footer>
@@ -381,12 +381,8 @@
     }, 5000);
   });
 
-  function closePopup() {
-    document.getElementById('promoPopup').style.display = 'none';
-  }
-
   function popupOrder(){
-    const text = "🔥 Buy 1 Burger, Get 1 Drink Free! I want to order now 🍔🥤";
+    const text = "🔥 Buy 1 Pizza, Get 1 Drink Free! I want to order now 🍕🥤";
     const phone = "03080432842";
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
     window.open(url,'_blank');
