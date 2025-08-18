@@ -38,17 +38,6 @@
 
   nav ul.nav-links li a:hover { color: #fff; }
 
-  /* LANGUAGE SWITCHER */
-  .language-switcher {
-    background-color: #330000;
-    color: gold;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
   .hero { text-align: center; padding: 60px 20px; }
   .hero h1 { font-size: 48px; margin-bottom: 20px; }
   .hero p { font-size: 20px; }
@@ -76,7 +65,7 @@
 
   /* REVIEW SECTION */
   .reviews { background-color: #1a0000; color: gold; padding: 40px 20px; text-align: center; }
-  .reviews h2 { font-size: 28px; margin-bottom: 30px; color: gold; }
+  .reviews h2 { font-size: 28px; margin-bottom: 20px; color: gold; }
 
   .review-slider {
     display: flex;
@@ -176,11 +165,6 @@
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <select class="language-switcher" id="languageSwitcher">
-    <option value="en">English</option>
-    <option value="ur">اردو</option>
-    <option value="skr">سرائیکی</option>
-  </select>
 </nav>
 
 <!-- HERO SECTION -->
@@ -202,9 +186,19 @@
   </div>
 </section>
 
-<!-- CUSTOMER REVIEWS -->
+<!-- CUSTOMER REVIEWS & LANGUAGE SWITCHER -->
 <section class="reviews">
   <h2 id="reviewsTitle">What Our Customers Say</h2>
+
+  <!-- LANGUAGE SWITCHER under review/contact section -->
+  <div style="margin: 20px 0; text-align: center;">
+    <select class="language-switcher" id="languageSwitcher" style="padding: 8px 15px; background-color:#330000; color:gold; border-radius:5px; border:none; font-weight:bold; cursor:pointer;">
+      <option value="en">English</option>
+      <option value="ur">اردو</option>
+      <option value="skr">سرائیکی</option>
+    </select>
+  </div>
+
   <div class="review-slider-wrapper">
     <div class="review-slider">
       <div class="review-card">
@@ -288,36 +282,4 @@
     const rating = document.getElementById('ratingSelect').value;
     const message = document.getElementById('reviewMessage').value;
     const text = `Order/Review:\nName: ${name}\nItem: ${item}\nRating: ${rating}\nMessage: ${message}`;
-    const url = `https://wa.me/03080432842?text=${encodeURIComponent(text)}`;
-    window.open(url, '_blank');
-  });
-
-  // LANGUAGE SWITCHER
-  const languageSwitcher = document.getElementById('languageSwitcher');
-  languageSwitcher.addEventListener('change', function(){
-    const lang = this.value;
-    if(lang==='en'){
-      document.getElementById('heroTitle').textContent = "Welcome to Grill & Slice";
-      document.getElementById('heroText').textContent = "Delicious pizzas, burgers, and fast food right at your fingertips!";
-      document.getElementById('menuTitle').textContent = "Our Popular Items";
-      document.getElementById('reviewsTitle').textContent = "What Our Customers Say";
-    } else if(lang==='ur'){
-      document.getElementById('heroTitle').textContent = "گرل اینڈ سلائس میں خوش آمدید";
-      document.getElementById('heroText').textContent = "لذیذ پیزا، برگر اور فاسٹ فوڈ آپ کی پہنچ میں!";
-      document.getElementById('menuTitle').textContent = "ہمارے مشہور آئٹمز";
-      document.getElementById('reviewsTitle').textContent = "ہمارے صارفین کیا کہتے ہیں";
-    } else if(lang==='skr'){
-      document.getElementById('heroTitle').textContent = "گرل اینڈ سلائس وچ خوش آمدید";
-      document.getElementById('heroText').textContent = "مزیدار پیزا، برگر تے فاسٹ فوڈ تہاڈے کول!";
-      document.getElementById('menuTitle').textContent = "ساڈے مشہور آئٹمز";
-      document.getElementById('reviewsTitle').textContent = "ساڈے صارف کیہندے نیں";
-    }
-  });
-</script>
-
-<footer>
-  <p>&copy; 2025 Grill & Slice | All Rights Reserved</p>
-</footer>
-
-</body>
-</html>
+    const url
