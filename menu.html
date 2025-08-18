@@ -3,101 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Menu - Grill & Slice</title>
+<title>Grill & Slice - Menu</title>
 <style>
-  body {
-    margin:0; padding:0;
-    font-family: Arial, sans-serif;
-    background-color: #1a0000;
-    color: gold;
-  }
-  nav.navbar {
-    display: flex; justify-content: space-between; background-color: #b30000; padding: 15px 20px; align-items: center;
-  }
-  nav .logo { font-size: 24px; font-weight: bold; color: gold; }
-  nav ul.nav-links { list-style: none; display: flex; gap: 15px; }
-  nav ul.nav-links li a { color: gold; text-decoration: none; font-weight: bold; transition: 0.3s; }
-  nav ul.nav-links li a:hover { color: #fff; }
+body {
+  margin:0; padding:0;
+  font-family: Arial, sans-serif;
+  background-color: #1a0000;
+  color: gold;
+}
+nav.navbar {
+  display: flex; justify-content: space-between; background-color: #b30000; padding: 15px 20px; align-items: center;
+}
+nav .logo { font-size: 24px; font-weight: bold; color: gold; }
+nav ul.nav-links { list-style: none; display: flex; gap: 15px; }
+nav ul.nav-links li a { color: gold; text-decoration: none; font-weight: bold; transition: 0.3s; }
+nav ul.nav-links li a:hover { color: #fff; }
 
-  h1 { text-align:center; margin-top:30px; color:gold; }
+.section { padding:40px 20px; text-align:center; }
 
-  /* MENU GRID */
-  .menu-section {
-    padding: 40px 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-  }
+.menu-items {
+  display:flex; flex-wrap:wrap; justify-content:center; gap:20px;
+}
+.menu-item {
+  width:200px; background-color:#330000; border-radius:10px; padding:10px; cursor:pointer;
+  transition: transform 0.3s;
+}
+.menu-item:hover { transform:scale(1.05); }
+.menu-item img { width:100%; border-radius:10px; }
+.menu-item p { color: gold; font-weight:bold; margin-top:10px; }
 
-  .menu-card {
-    background: linear-gradient(#330000, #4d0000);
-    border-radius: 15px;
-    overflow: hidden;
-    text-align: center;
-    padding-bottom: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-    transition: transform 0.3s, box-shadow 0.3s, opacity 0.6s;
-    cursor: pointer;
-    position: relative;
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  .menu-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .menu-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 25px gold;
-  }
+#recommendationSectionWrapper {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+#recommendationSection {
+  display:flex;
+  gap:20px;
+  transition: transform 0.5s ease-in-out;
+}
 
-  .menu-card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    transition: transform 0.3s;
-  }
-  .menu-card:hover img {
-    transform: scale(1.1);
-  }
+.carousel-arrow {
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+  background-color:#b30000;
+  color: gold;
+  border:none;
+  padding:10px;
+  cursor:pointer;
+  border-radius:50%;
+  font-size:18px;
+}
+.carousel-arrow:hover { background-color: gold; color:#b30000; }
 
-  .menu-card h3 {
-    margin: 10px 0 5px 0;
-    font-size: 20px;
-    color: gold;
-  }
-  .menu-card p {
-    font-size: 14px;
-    color: #ffd700aa;
-    margin: 0 10px 5px 10px;
-  }
+#prev { left:10px; }
+#next { right:10px; }
 
-  .menu-card .icons {
-    margin: 5px 0;
-  }
-  .menu-card .icons span {
-    margin: 0 3px;
-    display:inline-block;
-    transition: transform 0.3s;
-  }
-  .menu-card .icons span:hover {
-    transform: scale(1.3);
-  }
-
-  .menu-card button {
-    background-color: gold;
-    color: #b30000;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 15px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  .menu-card button:hover {
-    background-color: #ffcc00;
-  }
-
+.language-button {
+  position: fixed; top:20px; right:20px; background-color: #b30000; color: gold; padding:10px 15px;
+  border-radius:10px; font-weight:bold; cursor:pointer;
+}
+.language-button:hover { background-color: gold; color:#b30000; transform: scale(1.05); }
 </style>
 </head>
 <body>
@@ -112,119 +79,113 @@
   </ul>
 </nav>
 
-<h1>Our Menu</h1>
-
-<section class="menu-section">
-  <!-- Pizzas -->
-  <div class="menu-card" onclick="goToContact('Cheese Pizza')">
-    <img src="https://via.placeholder.com/300x150" alt="Cheese Pizza">
-    <h3>Cheese Pizza</h3>
-    <p>Delicious cheese-loaded pizza with fresh toppings.</p>
-    <div class="icons"><span>⭐</span></div>
-    <button onclick="goToContact('Cheese Pizza')">Order Now</button>
+<div class="section">
+  <h2>Recommended for You</h2>
+  <div id="recommendationSectionWrapper">
+    <button id="prev" class="carousel-arrow">&#10094;</button>
+    <div id="recommendationSection"></div>
+    <button id="next" class="carousel-arrow">&#10095;</button>
   </div>
+</div>
 
-  <div class="menu-card" onclick="goToContact('Veggie Pizza')">
-    <img src="https://via.placeholder.com/300x150" alt="Veggie Pizza">
-    <h3>Veggie Pizza</h3>
-    <p>Fresh veggies, mozzarella, and our special sauce.</p>
-    <div class="icons"><span>🥬</span></div>
-    <button onclick="goToContact('Veggie Pizza')">Order Now</button>
+<div class="section">
+  <h2>Our Menu</h2>
+  <div class="menu-items">
+    <div class="menu-item" onclick="goToOrder('Margherita Pizza')">
+      <img src="margherita.jpg">
+      <p>Margherita Pizza</p>
+    </div>
+    <div class="menu-item" onclick="goToOrder('BBQ Chicken Pizza')">
+      <img src="bbqchicken.jpg">
+      <p>BBQ Chicken Pizza</p>
+    </div>
+    <div class="menu-item" onclick="goToOrder('Cheese Burger')">
+      <img src="cheeseburger.jpg">
+      <p>Cheese Burger</p>
+    </div>
+    <div class="menu-item" onclick="goToOrder('Veg Burger')">
+      <img src="vegburger.jpg">
+      <p>Veg Burger</p>
+    </div>
+    <div class="menu-item" onclick="goToOrder('French Fries')">
+      <img src="fries.jpg">
+      <p>French Fries</p>
+    </div>
+    <div class="menu-item" onclick="goToOrder('Coke')">
+      <img src="coke.jpg">
+      <p>Coke</p>
+    </div>
+    <div class="menu-item" onclick="goToOrder('Garlic Bread')">
+      <img src="garlicbread.jpg">
+      <p>Garlic Bread</p>
+    </div>
   </div>
+</div>
 
-  <div class="menu-card" onclick="goToContact('Pepperoni Pizza')">
-    <img src="https://via.placeholder.com/300x150" alt="Pepperoni Pizza">
-    <h3>Pepperoni Pizza</h3>
-    <p>Classic pepperoni with cheesy goodness and fresh crust.</p>
-    <div class="icons"><span>🌶️</span></div>
-    <button onclick="goToContact('Pepperoni Pizza')">Order Now</button>
-  </div>
-
-  <div class="menu-card" onclick="goToContact('BBQ Chicken Pizza')">
-    <img src="https://via.placeholder.com/300x150" alt="BBQ Chicken Pizza">
-    <h3>BBQ Chicken Pizza</h3>
-    <p>Smoky BBQ chicken with cheese and fresh herbs.</p>
-    <div class="icons"><span>⭐</span> <span>🌶️</span></div>
-    <button onclick="goToContact('BBQ Chicken Pizza')">Order Now</button>
-  </div>
-
-  <!-- Burgers -->
-  <div class="menu-card" onclick="goToContact('Beef Burger')">
-    <img src="https://via.placeholder.com/300x150" alt="Beef Burger">
-    <h3>Beef Burger</h3>
-    <p>Juicy beef patty with fresh lettuce, tomato, and cheese.</p>
-    <div class="icons"><span>⭐</span></div>
-    <button onclick="goToContact('Beef Burger')">Order Now</button>
-  </div>
-
-  <div class="menu-card" onclick="goToContact('Chicken Burger')">
-    <img src="https://via.placeholder.com/300x150" alt="Chicken Burger">
-    <h3>Chicken Burger</h3>
-    <p>Grilled chicken with secret sauce, lettuce, and tomato.</p>
-    <div class="icons"><span>🌶️</span></div>
-    <button onclick="goToContact('Chicken Burger')">Order Now</button>
-  </div>
-
-  <div class="menu-card" onclick="goToContact('Veggie Burger')">
-    <img src="https://via.placeholder.com/300x150" alt="Veggie Burger">
-    <h3>Veggie Burger</h3>
-    <p>Fresh vegetable patty with cheese and lettuce.</p>
-    <div class="icons"><span>🥬</span></div>
-    <button onclick="goToContact('Veggie Burger')">Order Now</button>
-  </div>
-
-  <!-- Fast Food -->
-  <div class="menu-card" onclick="goToContact('Fries')">
-    <img src="https://via.placeholder.com/300x150" alt="Fries">
-    <h3>Fries</h3>
-    <p>Crispy golden fries, perfect as a side or snack.</p>
-    <div class="icons"></div>
-    <button onclick="goToContact('Fries')">Order Now</button>
-  </div>
-
-  <div class="menu-card" onclick="goToContact('Hot Dog')">
-    <img src="https://via.placeholder.com/300x150" alt="Hot Dog">
-    <h3>Hot Dog</h3>
-    <p>Soft bun with juicy sausage, mustard, and ketchup.</p>
-    <div class="icons"><span>🌶️</span></div>
-    <button onclick="goToContact('Hot Dog')">Order Now</button>
-  </div>
-
-  <div class="menu-card" onclick="goToContact('Nuggets')">
-    <img src="https://via.placeholder.com/300x150" alt="Nuggets">
-    <h3>Nuggets</h3>
-    <p>Golden fried chicken nuggets served with dip.</p>
-    <div class="icons"><span>⭐</span></div>
-    <button onclick="goToContact('Nuggets')">Order Now</button>
-  </div>
-
-  <div class="menu-card" onclick="goToContact('Cheese Sticks')">
-    <img src="https://via.placeholder.com/300x150" alt="Cheese Sticks">
-    <h3>Cheese Sticks</h3>
-    <p>Melty cheese sticks with crispy coating.</p>
-    <div class="icons"><span>⭐</span></div>
-    <button onclick="goToContact('Cheese Sticks')">Order Now</button>
-  </div>
-
-</section>
+<div class="language-button">Language</div>
 
 <script>
-function goToContact(item){
-    const encodedItem = encodeURIComponent(item);
-    window.location.href = `contact.html?item=${encodedItem}`;
+// Navigate to contact page with pre-selected item
+function goToOrder(item){
+  window.location.href = `contact.html?item=${encodeURIComponent(item)}`;
 }
 
-// Scroll Animation
-const cards = document.querySelectorAll('.menu-card');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.2 });
+// AI-based Recommendations
+const menuItems = [
+  {name:'Margherita Pizza', img:'margherita.jpg'},
+  {name:'BBQ Chicken Pizza', img:'bbqchicken.jpg'},
+  {name:'Cheese Burger', img:'cheeseburger.jpg'},
+  {name:'Veg Burger', img:'vegburger.jpg'},
+  {name:'French Fries', img:'fries.jpg'},
+  {name:'Coke', img:'coke.jpg'},
+  {name:'Garlic Bread', img:'garlicbread.jpg'}
+];
 
-cards.forEach(card => observer.observe(card));
+const clickedItems = JSON.parse(localStorage.getItem('clickedItems')) || [];
+const recommendationSection = document.getElementById('recommendationSection');
+
+function getTopRecommendations(){
+  const countMap = {};
+  clickedItems.forEach(item => {
+    if(countMap[item.item]) countMap[item.item]++;
+    else countMap[item.item] = 1;
+  });
+  const sorted = Object.entries(countMap).sort((a,b)=>b[1]-a[1]);
+  return sorted.map(x=>x[0]);
+}
+
+const topItems = getTopRecommendations();
+
+let recommendations = [];
+if(topItems.length===0){
+  recommendations = menuItems.slice(0,5);
+}else{
+  topItems.forEach(itemName=>{
+    const menuItem = menuItems.find(m=>m.name===itemName);
+    if(menuItem) recommendations.push(menuItem);
+  });
+}
+
+// Populate carousel
+recommendations.forEach(menuItem=>{
+  const div = document.createElement('div');
+  div.className='menu-item';
+  div.onclick = ()=>goToOrder(menuItem.name);
+  div.innerHTML = `<img src="${menuItem.img}"><p>${menuItem.name}</p>`;
+  recommendationSection.appendChild(div);
+});
+
+// Carousel sliding logic
+let scrollIndex = 0;
+const maxScroll = recommendations.length - 3; // show 3 items at a time
+document.getElementById('next').onclick = ()=>{
+  if(scrollIndex < maxScroll) scrollIndex++;
+  recommendationSection.style.transform = `translateX(${-scrollIndex*220}px)`;
+}
+document.getElementById('prev').onclick = ()=>{
+  if(scrollIndex > 0) scrollIndex--;
+  recommendationSection.style.transform = `translateX(${-scrollIndex*220}px)`;
+}
 </script>
 
 </body>
