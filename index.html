@@ -5,10 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Grill & Slice</title>
 <style>
-  /* GENERAL STYLING */
   body {
     font-family: Arial, sans-serif;
-    background-color: #1a0000; /* dark red background */
+    background-color: #1a0000;
     color: gold;
     margin: 0;
     padding: 0;
@@ -22,11 +21,7 @@
     align-items: center;
   }
 
-  nav .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: gold;
-  }
+  nav .logo { font-size: 24px; font-weight: bold; color: gold; }
 
   nav ul.nav-links {
     list-style: none;
@@ -41,35 +36,25 @@
     transition: 0.3s;
   }
 
-  nav ul.nav-links li a:hover {
-    color: #fff;
-  }
+  nav ul.nav-links li a:hover { color: #fff; }
 
-  /* HERO SECTION */
-  .hero {
-    text-align: center;
-    padding: 60px 20px;
-  }
-
-  .hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-  }
-
-  .hero p {
-    font-size: 20px;
-  }
-
-  /* MENU HIGHLIGHTS SECTION */
-  .menu-highlights {
-    padding: 40px 20px;
-    text-align: center;
-  }
-
-  .menu-highlights h2 {
-    margin-bottom: 30px;
+  /* LANGUAGE SWITCHER */
+  .language-switcher {
+    background-color: #330000;
     color: gold;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
   }
+
+  .hero { text-align: center; padding: 60px 20px; }
+  .hero h1 { font-size: 48px; margin-bottom: 20px; }
+  .hero p { font-size: 20px; }
+
+  .menu-highlights { padding: 40px 20px; text-align: center; }
+  .menu-highlights h2 { margin-bottom: 30px; color: gold; }
 
   .menu-items {
     display: flex;
@@ -83,29 +68,15 @@
     border-radius: 10px;
     padding: 20px;
     min-width: 200px;
-    flex-shrink: 0;
     cursor: pointer;
     transition: 0.3s;
   }
 
-  .menu-card:hover {
-    background-color: gold;
-    color: #b30000;
-  }
+  .menu-card:hover { background-color: gold; color: #b30000; }
 
   /* REVIEW SECTION */
-  .reviews {
-    background-color: #1a0000;
-    color: gold;
-    padding: 40px 20px;
-    text-align: center;
-  }
-
-  .reviews h2 {
-    font-size: 28px;
-    margin-bottom: 30px;
-    color: gold;
-  }
+  .reviews { background-color: #1a0000; color: gold; padding: 40px 20px; text-align: center; }
+  .reviews h2 { font-size: 28px; margin-bottom: 30px; color: gold; }
 
   .review-slider {
     display: flex;
@@ -125,32 +96,18 @@
     transition: transform 0.3s;
   }
 
-  .review-card:hover {
-    transform: scale(1.05);
-  }
+  .review-card:hover { transform: scale(1.05); }
 
-  .review-card p {
-    margin: 10px 0;
-  }
-
-  .review-card h4 {
-    margin-top: 10px;
-    color: gold;
-  }
+  .review-card p { margin: 10px 0; }
+  .review-card h4 { margin-top: 10px; color: gold; }
 
   @keyframes scrollReviews {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
 
-  .review-slider-wrapper {
-    display: flex;
-    width: 200%;
-  }
-
-  .review-slider-wrapper .review-slider {
-    width: 50%;
-  }
+  .review-slider-wrapper { display: flex; width: 200%; }
+  .review-slider-wrapper .review-slider { width: 50%; }
 
   /* REVIEW FORM BUTTON */
   #reviewToggle {
@@ -165,9 +122,7 @@
     transition: transform 0.3s;
   }
 
-  #reviewToggle.active {
-    transform: rotate(10deg);
-  }
+  #reviewToggle.active { transform: rotate(10deg); }
 
   /* REVIEW FORM */
   #reviewForm {
@@ -177,9 +132,7 @@
     transition: max-height 0.7s ease;
   }
 
-  #reviewForm.show {
-    max-height: 500px; /* adjust as needed */
-  }
+  #reviewForm.show { max-height: 600px; }
 
   #reviewForm input, #reviewForm select, #reviewForm textarea {
     padding:10px;
@@ -199,11 +152,8 @@
     cursor:pointer;
   }
 
-  #reviewForm button:hover {
-    background-color:#ffcc00;
-  }
+  #reviewForm button:hover { background-color:#ffcc00; }
 
-  /* FOOTER */
   footer {
     text-align: center;
     padding: 15px;
@@ -211,15 +161,8 @@
     color: gold;
   }
 
-  /* Hide scrollbar */
-  .review-slider::-webkit-scrollbar {
-    display: none;
-  }
-  .review-slider {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
+  .review-slider::-webkit-scrollbar { display: none; }
+  .review-slider { -ms-overflow-style: none; scrollbar-width: none; }
 </style>
 </head>
 <body>
@@ -233,53 +176,37 @@
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
+  <select class="language-switcher" id="languageSwitcher">
+    <option value="en">English</option>
+    <option value="ur">اردو</option>
+    <option value="skr">سرائیکی</option>
+  </select>
 </nav>
 
 <!-- HERO SECTION -->
 <section class="hero">
-  <h1>Welcome to Grill & Slice</h1>
-  <p>Delicious pizzas, burgers, and fast food right at your fingertips!</p>
+  <h1 id="heroTitle">Welcome to Grill & Slice</h1>
+  <p id="heroText">Delicious pizzas, burgers, and fast food right at your fingertips!</p>
 </section>
 
 <!-- MENU HIGHLIGHTS -->
 <section class="menu-highlights">
-  <h2>Our Popular Items</h2>
+  <h2 id="menuTitle">Our Popular Items</h2>
   <div class="menu-items">
-    <div class="menu-card" onclick="window.location.href='contact.html?item=Cheese Pizza'">Cheese Pizza</div>
-    <div class="menu-card" onclick="window.location.href='contact.html?item=Veggie Pizza'">Veggie Pizza</div>
-    <div class="menu-card" onclick="window.location.href='contact.html?item=Beef Burger'">Beef Burger</div>
-    <div class="menu-card" onclick="window.location.href='contact.html?item=Chicken Burger'">Chicken Burger</div>
-    <div class="menu-card" onclick="window.location.href='contact.html?item=Fries'">Fries</div>
-    <div class="menu-card" onclick="window.location.href='contact.html?item=Hot Dog'">Hot Dog</div>
+    <div class="menu-card" onclick="selectItem('Cheese Pizza')">Cheese Pizza</div>
+    <div class="menu-card" onclick="selectItem('Veggie Pizza')">Veggie Pizza</div>
+    <div class="menu-card" onclick="selectItem('Beef Burger')">Beef Burger</div>
+    <div class="menu-card" onclick="selectItem('Chicken Burger')">Chicken Burger</div>
+    <div class="menu-card" onclick="selectItem('Fries')">Fries</div>
+    <div class="menu-card" onclick="selectItem('Hot Dog')">Hot Dog</div>
   </div>
 </section>
 
-<!-- CUSTOMER REVIEWS SECTION -->
+<!-- CUSTOMER REVIEWS -->
 <section class="reviews">
-  <h2>What Our Customers Say</h2>
+  <h2 id="reviewsTitle">What Our Customers Say</h2>
   <div class="review-slider-wrapper">
     <div class="review-slider">
-      <div class="review-card">
-        <p>⭐⭐⭐⭐⭐</p>
-        <p>"Amazing pizza! Loved the flavors and quick delivery."</p>
-        <h4>- Ali R.</h4>
-      </div>
-      <div class="review-card">
-        <p>⭐⭐⭐⭐⭐</p>
-        <p>"Best burger in Muzaffargarh! Will order again."</p>
-        <h4>- Sara K.</h4>
-      </div>
-      <div class="review-card">
-        <p>⭐⭐⭐⭐⭐</p>
-        <p>"Fast food done right! Crispy, hot, and tasty."</p>
-        <h4>- Hamza T.</h4>
-      </div>
-      <div class="review-card">
-        <p>⭐⭐⭐⭐⭐</p>
-        <p>"Excellent service and fresh food. Highly recommended!"</p>
-        <h4>- Fatima L.</h4>
-      </div>
-      <!-- Duplicate cards for infinite scroll -->
       <div class="review-card">
         <p>⭐⭐⭐⭐⭐</p>
         <p>"Amazing pizza! Loved the flavors and quick delivery."</p>
@@ -303,14 +230,23 @@
     </div>
   </div>
 
-  <!-- CLICKABLE REVIEW FORM BUTTON -->
-  <button id="reviewToggle">Give Your Review</button>
+  <!-- REVIEW FORM BUTTON -->
+  <button id="reviewToggle">Give Your Review / Order</button>
 
   <!-- COLLAPSIBLE REVIEW FORM -->
   <div id="reviewForm">
-    <form action="https://wa.me/03080432842" method="get" target="_blank">
-      <input type="text" name="text" placeholder="Your Name" required>
-      <select name="text" required>
+    <form id="reviewOrderForm" target="_blank">
+      <input type="text" id="customerName" placeholder="Your Name" required>
+      <select id="itemSelect" required>
+        <option value="">Select Item</option>
+        <option value="Cheese Pizza">Cheese Pizza</option>
+        <option value="Veggie Pizza">Veggie Pizza</option>
+        <option value="Beef Burger">Beef Burger</option>
+        <option value="Chicken Burger">Chicken Burger</option>
+        <option value="Fries">Fries</option>
+        <option value="Hot Dog">Hot Dog</option>
+      </select>
+      <select id="ratingSelect" required>
         <option value="">Rate Us</option>
         <option value="⭐">1 Star</option>
         <option value="⭐⭐">2 Stars</option>
@@ -318,9 +254,9 @@
         <option value="⭐⭐⭐⭐">4 Stars</option>
         <option value="⭐⭐⭐⭐⭐">5 Stars</option>
       </select>
-      <textarea name="text" placeholder="Write your review..." required></textarea>
+      <textarea id="reviewMessage" placeholder="Write your review..." required></textarea>
       <br>
-      <button type="submit">Submit Review</button>
+      <button type="submit">Submit to WhatsApp</button>
     </form>
   </div>
 </section>
@@ -332,11 +268,53 @@
   toggleButton.addEventListener('click', () => {
     reviewForm.classList.toggle('show');
     toggleButton.classList.toggle('active');
-    toggleButton.textContent = reviewForm.classList.contains('show') ? 'Close Review Form' : 'Give Your Review';
+    toggleButton.textContent = reviewForm.classList.contains('show') ? 'Close Review / Order Form' : 'Give Your Review / Order';
+  });
+
+  function selectItem(itemName){
+    document.getElementById('itemSelect').value = itemName;
+    if(!reviewForm.classList.contains('show')){
+      reviewForm.classList.add('show');
+      toggleButton.classList.add('active');
+      toggleButton.textContent = 'Close Review / Order Form';
+    }
+    window.scrollTo({top: reviewForm.offsetTop - 50, behavior: 'smooth'});
+  }
+
+  document.getElementById('reviewOrderForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('customerName').value;
+    const item = document.getElementById('itemSelect').value;
+    const rating = document.getElementById('ratingSelect').value;
+    const message = document.getElementById('reviewMessage').value;
+    const text = `Order/Review:\nName: ${name}\nItem: ${item}\nRating: ${rating}\nMessage: ${message}`;
+    const url = `https://wa.me/03080432842?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+  });
+
+  // LANGUAGE SWITCHER
+  const languageSwitcher = document.getElementById('languageSwitcher');
+  languageSwitcher.addEventListener('change', function(){
+    const lang = this.value;
+    if(lang==='en'){
+      document.getElementById('heroTitle').textContent = "Welcome to Grill & Slice";
+      document.getElementById('heroText').textContent = "Delicious pizzas, burgers, and fast food right at your fingertips!";
+      document.getElementById('menuTitle').textContent = "Our Popular Items";
+      document.getElementById('reviewsTitle').textContent = "What Our Customers Say";
+    } else if(lang==='ur'){
+      document.getElementById('heroTitle').textContent = "گرل اینڈ سلائس میں خوش آمدید";
+      document.getElementById('heroText').textContent = "لذیذ پیزا، برگر اور فاسٹ فوڈ آپ کی پہنچ میں!";
+      document.getElementById('menuTitle').textContent = "ہمارے مشہور آئٹمز";
+      document.getElementById('reviewsTitle').textContent = "ہمارے صارفین کیا کہتے ہیں";
+    } else if(lang==='skr'){
+      document.getElementById('heroTitle').textContent = "گرل اینڈ سلائس وچ خوش آمدید";
+      document.getElementById('heroText').textContent = "مزیدار پیزا، برگر تے فاسٹ فوڈ تہاڈے کول!";
+      document.getElementById('menuTitle').textContent = "ساڈے مشہور آئٹمز";
+      document.getElementById('reviewsTitle').textContent = "ساڈے صارف کیہندے نیں";
+    }
   });
 </script>
 
-<!-- FOOTER -->
 <footer>
   <p>&copy; 2025 Grill & Slice | All Rights Reserved</p>
 </footer>
